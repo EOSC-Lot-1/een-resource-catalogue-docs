@@ -13,7 +13,7 @@
 **Work in Progress:** This section is a work in progress and is subject to modification.
 
 ## Description
-**Εosc ΕU Νode Resource Catalogue Documentation** provides a comprehensive guide to the API endpoints, models, and core components 
+**ΕΕΝ Resource Catalogue Documentation** provides a comprehensive guide to the API endpoints, models, and core components 
 of the **[Resource Catalogue](https://github.com/EOSC-Lot-1/resource-catalogue)** project, offering detailed 
 descriptions of each controller, along with their associated functionalities and endpoints. It includes an overview of 
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
@@ -27,16 +27,16 @@ schemas for validating data of the various classes, ensuring consistency and rel
     ii. [Interoperability Record Controller](#interoperability-record-controller)
     iii. [Provider Controller](#provider-controller)
     iv. [Service Controller](#service-controller)
-    v. [Service Extensions Controller](#service-extensions-controller)
-    vi. [Training Resource Controller](#training-resource-controller)
+    v. [Training Resource Controller](#training-resource-controller)
+    vi. [Tool Controller](#tool-controller)
     vii. [Vocabulary Controller](#vocabulary-controller)
 2. [Model](#model)
-    i. [Datasource](#datasource)
-    ii. [Helpdesk](#helpdesk)
-    iii. [Interoperability Record](#interoperability-record)
-    iv. [Provider](#provider)
-    v. [Service](#service)
-    vi. [Training Resource](#training-resource)
+    i. [Datasource](#datasource-bundle)
+    ii. [Interoperability Record](#interoperability-record-bundle)
+    iii. [Provider](#provider-bundle)
+    iv. [Service](#service-bundle)
+    v. [Training Resource](#training-resource-bundle)
+    vi. [Tool](#tool-bundle)
     vii. [Vocabulary](#vocabulary)
     viii. [Miscellaneous](#miscellaneous)
 3. [List of Vocabularies](#list-of-vocabularies)
@@ -226,7 +226,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
           prefix: String [required]
           suffix: String [required]
       ```
-    - Returns a list of all Services bases on a set of filters.
+    - Returns a list of all Services based on a set of filters.
       ```diff
         /services
         Params:
@@ -278,7 +278,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
           prefix: String [required]
           suffix: String [required]
       ```
-    - Returns a list of all Training Resources of the specific Catalogue in the Portal.
+    - Returns a list of all Training Resources based on a set of filters .
       ```diff
         /training-resources
         Params:
@@ -311,6 +311,59 @@ schemas for validating data of the various classes, ensuring consistency and rel
         Training Resource JSON [required]
       ```
 
+- ### Tool Controller
+  
+  #### Operations for Tools
+  
+  - DELETE
+    - Deletes a Tool given its id.
+      ```diff
+      /tools/{prefix}/{suffix}
+      Params:
+        prefix: String [required]
+        suffix: String [required]
+      ```
+      
+  - GET
+    - Returns a Tool given its id.
+      ```diff
+        /tools/{prefix}/{suffix}
+        Params:
+          prefix: String [required]
+          suffix: String [required]
+      ```
+    - Returns a list of all Tools in the Portal based on a set of filters.
+      ```diff
+        /tools
+        Params:
+          active: boolean [optional]
+          keyword : String (Keyword to refine the search) [optional]
+          from : String (Starting index in the result set, default 0) [optional]
+          quantity: String (Quantity to be fetched, default 10) [optional]
+          order: String (Order of results - asc/desc, default asc) [optional]
+          sort: String (Field to use for ordering) [optional]
+      ```
+      
+  - POST
+    - Creates a new Tool.
+      ```diff
+        /tools
+        Body:
+          Tool JSON [required]
+    - Validates a Tool without actually changing the repository.
+      ```diff
+      /tools/validate
+      Body:
+        Tool JSON [required]
+  - PUT
+    - Updates a specific Tool.
+      ```diff
+      /tools
+      Params:
+        comment: String
+      Body:
+        Tool JSON [required]
+      ```
 - ### Vocabulary Controller
   
   #### Get information about Vocabularies
@@ -347,7 +400,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 
 
 
-### DatasourceBundle
+### Datasource Bundle
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
 | `id`                   | `String`       | auto-gen | Yes    | Unique identifier for the resource.                        |
@@ -507,7 +560,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 }
 ```
 
-### InteroperabilityRecordBundle
+### Interoperability Record Bundle
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
 | `id`                   | `String`       | auto-gen | Yes    | Unique identifier for the resource.                        |
@@ -521,7 +574,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
-| `interoperabilityRecord`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
+| `interoperabilityRecord`           | `InteroperabilityRecord`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
 ### Interoperability Record
@@ -688,7 +741,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
     }
 }
 ```
-### ProviderBundle
+### Provider Bundle
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
 | `id`                   | `String`       | auto-gen | Yes    | Unique identifier for the resource.                        |
@@ -702,7 +755,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
-| `provider`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
+| `provider`           | `Provider`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
 ### Provider
@@ -950,7 +1003,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
     }
 }
 ```
-### ServiceBundle
+### Service Bundle
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
 | `id`                   | `String`       | auto-gen | Yes    | Unique identifier for the resource.                        |
@@ -965,7 +1018,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
 | `sites`             | `List<Site>`     | No       | Yes    | Information on the service's sites.    
-| `service`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
+| `service`           | `Service`   | Yes      | Yes    | Metadata of the actual resource.                           |
 | `nodeId`                   | `String`       | No| Yes    | ID of the node the resource belongs
 
 ### Service
@@ -1306,7 +1359,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
-| `trainingResource`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.       
+| `trainingResource`           | `TrainingResource`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
 ### Training Resource
 
@@ -1459,6 +1512,45 @@ schemas for validating data of the various classes, ensuring consistency and rel
     }
 }
 ```
+### Tool Bundle
+| Field                  | Type           | Required | Public | Description                                                 |
+|------------------------|----------------|----------|--------|-------------------------------------------------------------|
+| `id`                   | `String`       | auto-gen | Yes    | Unique identifier for the resource.                        |
+| `active`               | `Boolean`      | No       | No     | Indicates whether the resource is active.                  |
+| `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
+| `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
+| `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
+| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
+| `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
+| `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
+| `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
+| `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
+| `security`           | `Security`   | Yes      | Yes    | Metadata of the actual resource.                    |      |
+| `contributorProvided`                | `Boolean`      | No       | No     | Indicates whether the resource is related to a Provider.
+| `tool`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
+                    |
+### Tool
+
+| Field                        | Type                          | Required | Public| Description                                                                       |
+|------------------------------|-------------------------------|----------|----|-------------------------------------------------------------------------------|
+| `id`                         | `String`                      | auto-gen| Yes | Unique identifier for the training resource.                                      |
+| `name`                      | `String`                      | Yes    | Yes  | Name of the tool.                                                   |
+| `resourceOrganisation`       | `String`                      | No   | Yes   | Name of the organisation providing the resource.                                              |
+| `resourceProvider`          | `String`                | No    | Yes   | ID of the resource provider.              |
+| `author`                    | `String`                | Yes  | Yes    | Authors who contributed to the tool.                         |                        |
+| `relatedResources`        | `List<String>`                | No   | Yes    | List of related resources in the European Open Science Cloud (EOSC).               |                       |
+| `description`                | `String`                      | No   | Yes    | Description of the training resource.                                             |
+| `keywords`                   | `List<String>`                | Yes  | Yes     | Keywords associated with the tool.                                   |
+| `license`                    | `String`                      | Yes  | Yes    | License under which the training resource is distributed.                         |          |
+| `versionDate`                | `Date`                       | Yes   | Yes   | Date and time when the version was published.                                     |                    |
+| `targetInfrastructure`      | `List<String>`               | Yes  | Yes     | Target infrastructures of the tool.                      |
+| `targetGroups`      | `List<String>`               | No  | Yes     | Target groups of the tool.               
+| `deprecated`               | `Boolean`      | No       | No     | Indicates whether the resource is deprecated.        |       |                  |      |      |      
+| `scientificDomains`          | `List<ServiceProviderDomain>` | Yes  | Yes    | List of scientific domains and subdomains relevant to the training resource.      |
+| `helpdeskPage`                    | `String`          | No   | Yes   | Helpdesk page of the tool.            |                                
+| `creditCost`                    | `String`          | No   | Yes   | Credit cost of the tool.            |     
+| `email`                    | `String`          | No   | No   | Contact email for the tool.            |      |
 
 ### Vocabulary
 
@@ -1484,6 +1576,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 }
 ```
 ### Miscellaneous
+
 ##### Metadata
 
 | Field          | Type     | Required | Public| Description                        |
