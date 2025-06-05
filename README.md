@@ -1526,7 +1526,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
-| `security`           | `Security`   | Yes      | Yes    | Metadata of the actual resource.                    |      |
+| `security`           | `ToolSecurity`   | Yes      | Yes    | Security related metadata.                    |      |
 | `contributorProvided`                | `Boolean`      | No       | No     | Indicates whether the resource is related to a Provider.
 | `tool`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
@@ -1552,7 +1552,18 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `creditCost`                    | `String`          | No   | Yes   | Credit cost of the tool.            |     
 | `email`                    | `String`          | No   | No   | Contact email for the tool.            |      |
 
+##### ToolSecurity
+
+| Field          | Type     | Required | Description                        |
+|----------------|----------|----------|------------------------------------|
+| `status`    | `String` | No      | Security status.    |
+| `vulnerabilities`     | `String` | No      | Tool vulnerabilities.     |
+| `lastCheck`        | `String` | No      | Datetime of the last security check. |
+| `reportUrl`        | `String` | No       | URL of the report.  |
+| `reviewed`     | `String` | No       | Indicates if tool is reviewed.      |
+
 ### Vocabulary
+
 
 | Field         | Type                  | Required | Description                                             |
 |---------------|-----------------------|----------|---------------------------------------------------------|
