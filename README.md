@@ -13,7 +13,7 @@
 **Work in Progress:** This section is a work in progress and is subject to modification.
 
 ## Description
-**ΕΕΝ Resource Catalogue Documentation** provides a comprehensive guide to the API endpoints, models, and core components 
+**Εosc ΕU Νode Resource Catalogue Documentation** provides a comprehensive guide to the API endpoints, models, and core components 
 of the **[Resource Catalogue](https://github.com/EOSC-Lot-1/resource-catalogue)** project, offering detailed 
 descriptions of each controller, along with their associated functionalities and endpoints. It includes an overview of 
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
@@ -22,8 +22,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 ---
 
 ## Table of Contents
-1. [API](#api)
-2. [Controllers](#controllers)
+1. [Controllers](#controllers)
     i. [Datasource Controller](#datasource-controller)
     ii. [Interoperability Record Controller](#interoperability-record-controller)
     iii. [Provider Controller](#provider-controller)
@@ -31,7 +30,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
     v. [Service Extensions Controller](#service-extensions-controller)
     vi. [Training Resource Controller](#training-resource-controller)
     vii. [Vocabulary Controller](#vocabulary-controller)
-3. [Model](#model)
+2. [Model](#model)
     i. [Datasource](#datasource)
     ii. [Helpdesk](#helpdesk)
     iii. [Interoperability Record](#interoperability-record)
@@ -40,19 +39,8 @@ schemas for validating data of the various classes, ensuring consistency and rel
     vi. [Training Resource](#training-resource)
     vii. [Vocabulary](#vocabulary)
     viii. [Miscellaneous](#miscellaneous)
-4. [List of Vocabularies](#list-of-vocabularies)
-5. [Data Validation](#data-validation)
-
----
-
-## API
-- https://providers.sandbox.eosc-beyond.eu/api
-- https://integration.providers.sandbox.eosc-beyond.eu/api
-- https://dev.providers.sandbox.eosc-beyond.eu/api
-
-
-
-
+3. [List of Vocabularies](#list-of-vocabularies)
+4. [Data Validation](#data-validation)
 
 ---
 
@@ -1502,7 +1490,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 |----------------|----------|----------|-------|-----------------------------|
 | `registeredBy`    | `String` | Yes    |No  | Person who registered the resource.    |
 | `registeredAt`     | `String` | Yes   |Yes   | Timestamp when the resource was registered.     |
-| `modifiedBy`        | `String` | Yes  |No    | Person who modified the resource |
+| `modifiedBy`        | `String` | Yes  |No    | Person who modified the resource. |
 | `modifiedAt`        | `String` | No   |No    | Timestamp when the resource was modified.  |
 | `published` | `String` | No      |No |Indicates if resource is published.  |
 ---
