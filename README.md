@@ -23,22 +23,22 @@ schemas for validating data of the various classes, ensuring consistency and rel
 
 ## Table of Contents
 1. [Controllers](#controllers)
-    i. [Datasource Controller](#datasource-controller)
-    ii. [Interoperability Record Controller](#interoperability-record-controller)
-    iii. [Provider Controller](#provider-controller)
-    iv. [Service Controller](#service-controller)
-    v. [Training Resource Controller](#training-resource-controller)
-    vi. [Tool Controller](#tool-controller)
-    vii. [Vocabulary Controller](#vocabulary-controller)
-2. [Model](#model)
-    i. [Datasource](#datasource-bundle)
-    ii. [Interoperability Record](#interoperability-record-bundle)
-    iii. [Provider](#provider-bundle)
-    iv. [Service](#service-bundle)
-    v. [Training Resource](#training-resource-bundle)
-    vi. [Tool](#tool-bundle)
-    vii. [Vocabulary](#vocabulary)
-    viii. [Miscellaneous](#miscellaneous)
+    i. [Datasource Controller](#datasource-controller)  
+    ii. [Interoperability Record Controller](#interoperability-record-controller)  
+    iii. [Provider Controller](#provider-controller)  
+    iv. [Service Controller](#service-controller)  
+    v. [Training Resource Controller](#training-resource-controller)  
+    vi. [Tool Controller](#tool-controller)  
+    vii. [Vocabulary Controller](#vocabulary-controller)  
+2. [Model](#model)  
+    i. [Datasource](#datasource-bundle)  
+    ii. [Interoperability Record](#interoperability-record-bundle)  
+    iii. [Provider](#provider-bundle)  
+    iv. [Service](#service-bundle)  
+    v. [Training Resource](#training-resource-bundle)  
+    vi. [Tool](#tool-bundle)  
+    vii. [Vocabulary](#vocabulary)  
+    viii. [Miscellaneous](#miscellaneous)  
 3. [List of Vocabularies](#list-of-vocabularies)
 4. [Data Validation](#data-validation)
 
@@ -755,6 +755,7 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
+| `nodeInfo`           | `NodeInfo`   | No      | Yes    | Metadata of the actual resource.                           |
 | `provider`           | `Provider`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
@@ -854,6 +855,24 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `merilScientificDomain`    | `String` | Yes      | MERIL scientific domain related to the provider.    |
 | `merilScientificSubdomain` | `String` | No       | MERIL scientific subdomain related to the provider. |
 
+##### NodeInfo 
+
+| Field                      | Type     | Required | Public | Description                                         |
+|----------------------------|----------|----------|-------------------------|----------------------------|
+| `isNode`    | `String` | No      |Yes |Indicates if resource is a Node.    |
+| `openAIRECommunityTag` | `String` | No | Yes | OpenAIRE tag if node exists there. |
+| `nodeType`    | `String` | No      |No |Type of the Node.    |
+| `enrollmentSteps`    | `EnrollmentSteps`  | No      |Yes |Steps for node enrollement.    |
+
+##### EnrollmentSteps 
+
+| Field                      | Type     | Required | Public | Description                                         |
+|----------------------------|----------|----------|-------------------------|----------------------------|
+| `aaiEnrollment`    | `String` | No      |No |Aai enrollment status.    |
+| `cataloguesEnrollment` | `String` | No | No |Catalogues enrollment status. |
+| `helpdeskEnrollment`    | `String` | No      |No |Helpdesk enrollment status.    |
+| `monitoringEnrollment`    | `String`    | No      |No |Monitoring enrollment status.    |
+
 #### Example
 
 ```json
@@ -891,6 +910,17 @@ schemas for validating data of the various classes, ensuring consistency and rel
     ],
     "status": "offboarded",
     "resourceOrganisationGroupID": "groupId",
+    "nodeInfo": {
+        "isNode": true,
+        "openAIRECommunityTag": "openAIREtag",
+        "nodeType": "thematic",
+        "enrollmentSteps": {
+            "aaiEnrollment": "completed",
+            "cataloguesEnrollment": "completed",
+            "helpdeskEnrollment": "completed",
+            "monitoringEnrollment": "completed"
+        }
+    },
     "id": "provider_001",
     "provider": {
         "id": "provider_001",
@@ -1561,6 +1591,85 @@ schemas for validating data of the various classes, ensuring consistency and rel
 | `lastCheck`        | `String` | No      | Datetime of the last security check. |
 | `reportUrl`        | `String` | No       | URL of the report.  |
 | `reviewed`     | `String` | No       | Indicates if tool is reviewed.      |
+
+### Example
+
+```json
+{
+    "metadata": {
+        "registeredBy": "null",
+        "registeredAt": "1733734606",
+        "modifiedBy": "null",
+        "modifiedAt": "1733739459",
+        "published": true
+    },
+    "active": false,
+    "suspended": false,
+    "draft": false,
+    "legacy": false,
+    "loggingInfo": [
+        {
+            "date": "1733739490542",
+            "userEmail": "null",
+            "userFullName": "System",
+            "userRole": "admin",
+            "type": "update",
+            "comment": "null",
+            "actionType": "updated"
+        },
+        {
+            "date": "1733739490542",
+            "userEmail": "null",
+            "userFullName": "System",
+            "userRole": "admin",
+            "type": "onboard",
+            "comment": "null",
+            "actionType": "approved"
+        }
+    ],
+    "latestOnboardingInfo": {
+        "date": "1733739490542",
+        "userEmail": "null",
+        "userFullName": "System",
+        "userRole": "admin",
+        "type": "onboard",
+        "comment": "null",
+        "actionType": "approved"
+    },
+    "status": "approved",
+    "security": {},
+    "contributorProvided": false,
+    "tool": {
+        "id": "21.11162/6WP3Id",
+        "name": "go to top 2",
+        "resourceOrganisation": "EU Node",
+        "description": "desc",
+        "keywords": [
+            "eu"
+        ],
+        "license": "tool_license-apache",
+        "versionDate": "2024-12-09T08:56:46.990+00:00",
+        "targetInfrastructure": [
+            "tool_target_infrastructure-vm"
+        ],
+        "targetGroups": [
+            "target_user-other"
+        ],
+        "author": "EU Node",
+        "deprecated": true,
+        "scientificDomains": [
+            {
+                "scientificDomain": "scientific_domain-agricultural_sciences",
+                "scientificSubdomain":        "scientific_subdomain-agricultural_sciences-agricultural_biotechnology"
+            }
+        ],
+        "creditCost": "-",
+        "email": "john.doe@example.com"
+    },
+    "id": "tool_id"
+}
+```
+
 
 ### Vocabulary
 
