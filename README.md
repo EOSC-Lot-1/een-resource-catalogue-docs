@@ -17,7 +17,9 @@
 of the **[Resource Catalogue](https://github.com/EOSC-Lot-1/resource-catalogue)** project, offering detailed 
 descriptions of each controller, along with their associated functionalities and endpoints. It includes an overview of 
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
-schemas for validating data of the various classes, ensuring consistency and reliability across the system.
+schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
+
+_Resource Catalogue version: v5.0.0+u116_
 
 ---
 
