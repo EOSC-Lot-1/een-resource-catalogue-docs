@@ -19,12 +19,12 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u116_
+_Resource Catalogue version: v5.0.0+u117_
 
 ---
 
 ## Table of Contents
-1. [Controllers](#controllers)
+1. [Controllers](#controllers)  
     i. [Datasource Controller](#datasource-controller)  
     ii. [Interoperability Record Controller](#interoperability-record-controller)  
     iii. [Provider Controller](#provider-controller)  
@@ -1049,6 +1049,7 @@ _Resource Catalogue version: v5.0.0+u116_
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
+| `resourceExtras` | `ResourceExtras`  | No       | Yes     | Extra resource information.                  |      |
 | `sites`             | `List<Site>`     | No       | Yes    | Information on the service's sites.    
 | `service`           | `Service`   | Yes      | Yes    | Metadata of the actual resource.                           |
 | `nodeId`                   | `String`       | No| Yes    | ID of the node the resource belongs
@@ -1171,6 +1172,23 @@ _Resource Catalogue version: v5.0.0+u116_
 | `phone`        | `String` | No       | Phone number of the public contact.  |
 | `position`     | `String` | No       | Position of the public contact.      |
 | `organisation` | `String` | No       | Organization of the public contact.  |
+
+
+##### ResourceExtras
+
+| Field         | Type     | Required | Description                 |
+|---------------|----------|----------|-----------------------------|
+| `EOSCIFGuidelines`    | `List<EOSCIFGuidelines>` | No      | EOSC Interoperability Framework Guidelines.    |
+
+
+##### EOSCIFGuidelines
+
+| Field         | Type     | Required | Description                 |
+|---------------|----------|----------|-----------------------------|
+| `pid`    | `String` | No      | Pid of the guideline.    |
+| `label`    | `String` | No      | Label for the guideline.    |
+| `url`    | `URL` | No      | URL of the guideline.    |
+| `semanticRelationship`    | `String` | No      | Semantic Relationship.    |
 
 ##### Site
 
@@ -1719,9 +1737,13 @@ _Resource Catalogue version: v5.0.0+u116_
   - [COUNTRY_PHONE_CODES](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/COUNTRY_PHONE_CODES.json)
   - [CT_COMPATIBILITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CT_COMPATIBILITY.json)
   - [CT_PROTOCOL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CT_PROTOCOL.json)
+  - [DATASOURCE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DATASOURCE_TYPE.json)
   - [DS_CLASSIFICATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_CLASSIFICATION.json)
   - [DS_COAR_ACCESS_RIGHTS_1_0](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_COAR_ACCESS_RIGHTS_1_0.json)
   - [DS_JURISDICTION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_JURISDICTION.json)
+  - [DS_OAI_COMPATIBILITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_COMPATIBILITY.json)
+  - [DS_OAI_FORMATS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_FORMATS.json)
+  - [DS_OAI_PROTOCOL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_PROTOCOL.json)
   - [DS_PERSISTENT_IDENTITY_SCHEME](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_PERSISTENT_IDENTITY_SCHEME.json)
   - [DS_RESEARCH_ENTITY_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_RESEARCH_ENTITY_TYPE.json)
   - [ENDPOINT_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ENDPOINT_TYPE.json)
@@ -1729,6 +1751,7 @@ _Resource Catalogue version: v5.0.0+u116_
   - [FUNDING_BODY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/FUNDING_BODY.json)
   - [FUNDING_PROGRAM](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/FUNDING_PROGRAM.json)
   - [GEOGRAPHIC_LOCATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/GEOGRAPHIC_LOCATION.json)
+  - [INTEGRATION_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/INTEGRATION_STATUS.json)
   - [IR_EOSC_GUIDELINE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_EOSC_GUIDELINE_TYPE.json)
   - [IR_IDENTIFIER_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_IDENTIFIER_TYPE.json)
   - [IR_NAME_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_NAME_TYPE.json)
@@ -1738,6 +1761,8 @@ _Resource Catalogue version: v5.0.0+u116_
   - [LIFE_CYCLE_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/LIFE_CYCLE_STATUS.json)
   - [MARKETPLACE_LOCATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MARKETPLACE_LOCATION.json)
   - [MONITORING_MONITORED_BY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MONITORING_MONITORED_BY.json)
+  - [MONITORING_SERVICE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MONITORING_SERVICE_TYPE.json)
+  - [NODE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/NODE_TYPE.json)
   - [ORDER_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ORDER_TYPE.json)
   - [PROVIDER_AREA_OF_ACTIVITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_AREA_OF_ACTIVITY.json)
   - [PROVIDER_ESFRI_DOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_ESFRI_DOMAIN.json)
@@ -1754,7 +1779,7 @@ _Resource Catalogue version: v5.0.0+u116_
   - [REGION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/REGION.json)
   - [RELATED_PLATFORM](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RELATED_PLATFORM.json)
   - [RESEARCH_CATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESEARCH_CATEGORY.json)
-  - [RESOURCE_STATE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESOURCE_STATE.json)
+  - [RESOURCE_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESOURCE_STATUS.json)
   - [SCIENTIFIC_DOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_DOMAIN.json)
   - [SCIENTIFIC_SUBDOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_SUBDOMAIN.json)
   - [SEMANTIC_RELATIONSHIP](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SEMANTIC_RELATIONSHIP.json)
@@ -1764,6 +1789,10 @@ _Resource Catalogue version: v5.0.0+u116_
   - [SUPERCATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SUPERCATEGORY.json)
   - [TARGET_USER](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TARGET_USER.json)
   - [TEMPLATE_STATE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TEMPLATE_STATE.json)
+  - [TOOL_LICENSE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_LICENSE.json)
+  - [TOOL_SECURITY_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_SECURITY_STATUS.json)
+  - [TOOL_TARGET_INFRASTRUCTURE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_TARGET_INFRASTRUCTURE.json)
+  - [TOOL_VULNERABILITIES](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_VULNERABILITIES.json)
   - [TRL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TRL.json)
   - [TR_ACCESS_RIGHT](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_ACCESS_RIGHT.json)
   - [TR_CONTENT_RESOURCE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_CONTENT_RESOURCE_TYPE.json)

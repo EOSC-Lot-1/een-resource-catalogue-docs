@@ -1,0 +1,2252 @@
+[
+    {
+        "id": "country_phone_codes-AD",
+        "name": "Andorra",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+376",
+            "countryCode": "AD"
+        }
+    },
+    {
+        "id": "country_phone_codes-AE",
+        "name": "United Arab Emirates (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+971",
+            "countryCode": "AE"
+        }
+    },
+    {
+        "id": "country_phone_codes-AF",
+        "name": "Afghanistan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+93",
+            "countryCode": "AF"
+        }
+    },
+    {
+        "id": "country_phone_codes-AG",
+        "name": "Antigua and Barbuda",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1268",
+            "countryCode": "AG"
+        }
+    },
+    {
+        "id": "country_phone_codes-AI",
+        "name": "Anguilla",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1264",
+            "countryCode": "AI"
+        }
+    },
+    {
+        "id": "country_phone_codes-AL",
+        "name": "Albania",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+355",
+            "countryCode": "AL"
+        }
+    },
+    {
+        "id": "country_phone_codes-AM",
+        "name": "Armenia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+374",
+            "countryCode": "AM"
+        }
+    },
+    {
+        "id": "country_phone_codes-AO",
+        "name": "Angola",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+244",
+            "countryCode": "AO"
+        }
+    },
+    {
+        "id": "country_phone_codes-AQ",
+        "name": "Antarctica",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+672",
+            "countryCode": "AQ"
+        }
+    },
+    {
+        "id": "country_phone_codes-AR",
+        "name": "Argentina",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+54",
+            "countryCode": "AR"
+        }
+    },
+    {
+        "id": "country_phone_codes-AS",
+        "name": "American Samoa",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1684",
+            "countryCode": "AS"
+        }
+    },
+    {
+        "id": "country_phone_codes-AT",
+        "name": "Austria",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+43",
+            "countryCode": "AT"
+        }
+    },
+    {
+        "id": "country_phone_codes-AU",
+        "name": "Australia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+61",
+            "countryCode": "AU"
+        }
+    },
+    {
+        "id": "country_phone_codes-AW",
+        "name": "Aruba",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+297",
+            "countryCode": "AW"
+        }
+    },
+    {
+        "id": "country_phone_codes-AX",
+        "name": "Aland Islands",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+358",
+            "countryCode": "AX"
+        }
+    },
+    {
+        "id": "country_phone_codes-AZ",
+        "name": "Azerbaijan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+994",
+            "countryCode": "AZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-BA",
+        "name": "Bosnia and Herzegovina",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+387",
+            "countryCode": "BA"
+        }
+    },
+    {
+        "id": "country_phone_codes-BB",
+        "name": "Barbados",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1246",
+            "countryCode": "BB"
+        }
+    },
+    {
+        "id": "country_phone_codes-BD",
+        "name": "Bangladesh",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+880",
+            "countryCode": "BD"
+        }
+    },
+    {
+        "id": "country_phone_codes-BE",
+        "name": "Belgium",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+32",
+            "countryCode": "BE"
+        }
+    },
+    {
+        "id": "country_phone_codes-BF",
+        "name": "Burkina Faso",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+226",
+            "countryCode": "BF"
+        }
+    },
+    {
+        "id": "country_phone_codes-BG",
+        "name": "Bulgaria",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+359",
+            "countryCode": "BG"
+        }
+    },
+    {
+        "id": "country_phone_codes-BH",
+        "name": "Bahrain",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+973",
+            "countryCode": "BH"
+        }
+    },
+    {
+        "id": "country_phone_codes-BI",
+        "name": "Burundi",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+257",
+            "countryCode": "BI"
+        }
+    },
+    {
+        "id": "country_phone_codes-BJ",
+        "name": "Benin",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+229",
+            "countryCode": "BJ"
+        }
+    },
+    {
+        "id": "country_phone_codes-BL",
+        "name": "Saint Barthelemy",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+590",
+            "countryCode": "BL"
+        }
+    },
+    {
+        "id": "country_phone_codes-BM",
+        "name": "Bermuda",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1441",
+            "countryCode": "BM"
+        }
+    },
+    {
+        "id": "country_phone_codes-BN",
+        "name": "Brunei Darussalam",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+673",
+            "countryCode": "BN"
+        }
+    },
+    {
+        "id": "country_phone_codes-BO",
+        "name": "Bolivia, Plurinational State of",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+591",
+            "countryCode": "BO"
+        }
+    },
+    {
+        "id": "country_phone_codes-BQ",
+        "name": "Bonaire, Sint Eustatius and Saba",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+599",
+            "countryCode": "BQ"
+        }
+    },
+    {
+        "id": "country_phone_codes-BR",
+        "name": "Brazil",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+55",
+            "countryCode": "BR"
+        }
+    },
+    {
+        "id": "country_phone_codes-BS",
+        "name": "Bahamas (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1242",
+            "countryCode": "BS"
+        }
+    },
+    {
+        "id": "country_phone_codes-BT",
+        "name": "Bhutan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+975",
+            "countryCode": "BT"
+        }
+    },
+    {
+        "id": "country_phone_codes-BV",
+        "name": "Bouvet Island",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+298",
+            "countryCode": "FO"
+        }
+    },
+    {
+        "id": "country_phone_codes-BW",
+        "name": "Botswana",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+267",
+            "countryCode": "BW"
+        }
+    },
+    {
+        "id": "country_phone_codes-BY",
+        "name": "Belarus",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+375",
+            "countryCode": "BY"
+        }
+    },
+    {
+        "id": "country_phone_codes-BZ",
+        "name": "Belize",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+501",
+            "countryCode": "BZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-CA",
+        "name": "Canada",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1",
+            "countryCode": "CA"
+        }
+    },
+    {
+        "id": "country_phone_codes-CC",
+        "name": "Cocos (Keeling) Islands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+61",
+            "countryCode": "CC"
+        }
+    },
+    {
+        "id": "country_phone_codes-CD",
+        "name": "Congo (the Democratic Republic of the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+243",
+            "countryCode": "CD"
+        }
+    },
+    {
+        "id": "country_phone_codes-CF",
+        "name": "Central African Republic (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+236",
+            "countryCode": "CF"
+        }
+    },
+    {
+        "id": "country_phone_codes-CG",
+        "name": "Congo (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+242",
+            "countryCode": "CG"
+        }
+    },
+    {
+        "id": "country_phone_codes-CH",
+        "name": "Switzerland",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+41",
+            "countryCode": "CH"
+        }
+    },
+    {
+        "id": "country_phone_codes-CI",
+        "name": "CÃ´te d'Ivoire",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+225",
+            "countryCode": "CI"
+        }
+    },
+    {
+        "id": "country_phone_codes-CK",
+        "name": "Cook Islands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+682",
+            "countryCode": "CK"
+        }
+    },
+    {
+        "id": "country_phone_codes-CL",
+        "name": "Chile",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+56",
+            "countryCode": "CL"
+        }
+    },
+    {
+        "id": "country_phone_codes-CM",
+        "name": "Cameroon",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+237",
+            "countryCode": "CM"
+        }
+    },
+    {
+        "id": "country_phone_codes-CN",
+        "name": "China",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+86",
+            "countryCode": "CN"
+        }
+    },
+    {
+        "id": "country_phone_codes-CO",
+        "name": "Colombia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+57",
+            "countryCode": "CO"
+        }
+    },
+    {
+        "id": "country_phone_codes-CR",
+        "name": "Costa Rica",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+506",
+            "countryCode": "CR"
+        }
+    },
+    {
+        "id": "country_phone_codes-CU",
+        "name": "Cuba",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+53",
+            "countryCode": "CU"
+        }
+    },
+    {
+        "id": "country_phone_codes-CV",
+        "name": "Cabo Verde",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+238",
+            "countryCode": "CV"
+        }
+    },
+    {
+        "id": "country_phone_codes-CW",
+        "name": "Curacao",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+5999",
+            "countryCode": "CW"
+        }
+    },
+    {
+        "id": "country_phone_codes-CX",
+        "name": "Christmas Island",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+61",
+            "countryCode": "CX"
+        }
+    },
+    {
+        "id": "country_phone_codes-CY",
+        "name": "Cyprus",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+357",
+            "countryCode": "CY"
+        }
+    },
+    {
+        "id": "country_phone_codes-CZ",
+        "name": "Czechia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+86",
+            "countryCode": "CN"
+        }
+    },
+    {
+        "id": "country_phone_codes-DE",
+        "name": "Germany",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+49",
+            "countryCode": "DE"
+        }
+    },
+    {
+        "id": "country_phone_codes-DJ",
+        "name": "Djibouti",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+253",
+            "countryCode": "DJ"
+        }
+    },
+    {
+        "id": "country_phone_codes-DK",
+        "name": "Denmark",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+45",
+            "countryCode": "DK"
+        }
+    },
+    {
+        "id": "country_phone_codes-DM",
+        "name": "Dominica",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1767",
+            "countryCode": "DM"
+        }
+    },
+    {
+        "id": "country_phone_codes-DO",
+        "name": "Dominican Republic (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1849",
+            "countryCode": "DO"
+        }
+    },
+    {
+        "id": "country_phone_codes-DZ",
+        "name": "Algeria",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+213",
+            "countryCode": "DZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-EC",
+        "name": "Ecuador",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+593",
+            "countryCode": "EC"
+        }
+    },
+    {
+        "id": "country_phone_codes-EE",
+        "name": "Estonia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+372",
+            "countryCode": "EE"
+        }
+    },
+    {
+        "id": "country_phone_codes-EG",
+        "name": "Egypt",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+20",
+            "countryCode": "EG"
+        }
+    },
+    {
+        "id": "country_phone_codes-EH",
+        "name": "Western Sahara",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+212",
+            "countryCode": "EH"
+        }
+    },
+    {
+        "id": "country_phone_codes-EL",
+        "name": "Greece",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+30",
+            "countryCode": "GR"
+        }
+    },
+    {
+        "id": "country_phone_codes-ER",
+        "name": "Eritrea",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+291",
+            "countryCode": "ER"
+        }
+    },
+    {
+        "id": "country_phone_codes-ES",
+        "name": "Spain",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+34",
+            "countryCode": "ES"
+        }
+    },
+    {
+        "id": "country_phone_codes-ET",
+        "name": "Ethiopia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+251",
+            "countryCode": "ET"
+        }
+    },
+    {
+        "id": "country_phone_codes-FI",
+        "name": "Finland",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+358",
+            "countryCode": "FI"
+        }
+    },
+    {
+        "id": "country_phone_codes-FJ",
+        "name": "Fiji",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+679",
+            "countryCode": "FJ"
+        }
+    },
+    {
+        "id": "country_phone_codes-FK",
+        "name": "Falkland Islands (the) [Malvinas]",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+500",
+            "countryCode": "FK"
+        }
+    },
+    {
+        "id": "country_phone_codes-FM",
+        "name": "Micronesia (Federated States of)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+691",
+            "countryCode": "FM"
+        }
+    },
+    {
+        "id": "country_phone_codes-FO",
+        "name": "Faroe Islands",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+298",
+            "countryCode": "FO"
+        }
+    },
+    {
+        "id": "country_phone_codes-FR",
+        "name": "France",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+33",
+            "countryCode": "FR"
+        }
+    },
+    {
+        "id": "country_phone_codes-GA",
+        "name": "Gabon",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+241",
+            "countryCode": "GA"
+        }
+    },
+    {
+        "id": "country_phone_codes-GD",
+        "name": "Grenada",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1473",
+            "countryCode": "GD"
+        }
+    },
+    {
+        "id": "country_phone_codes-GE",
+        "name": "Georgia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+995",
+            "countryCode": "GE"
+        }
+    },
+    {
+        "id": "country_phone_codes-GF",
+        "name": "French Guiana",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+594",
+            "countryCode": "GF"
+        }
+    },
+    {
+        "id": "country_phone_codes-GG",
+        "name": "Guernsey",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+44",
+            "countryCode": "GG"
+        }
+    },
+    {
+        "id": "country_phone_codes-GH",
+        "name": "Ghana",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+233",
+            "countryCode": "GH"
+        }
+    },
+    {
+        "id": "country_phone_codes-GI",
+        "name": "Gibraltar",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+350",
+            "countryCode": "GI"
+        }
+    },
+    {
+        "id": "country_phone_codes-GL",
+        "name": "Greenland",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+299",
+            "countryCode": "GL"
+        }
+    },
+    {
+        "id": "country_phone_codes-GM",
+        "name": "Gambia (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+220",
+            "countryCode": "GM"
+        }
+    },
+    {
+        "id": "country_phone_codes-GN",
+        "name": "Guinea",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+224",
+            "countryCode": "GN"
+        }
+    },
+    {
+        "id": "country_phone_codes-GP",
+        "name": "Guadeloupe",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+590",
+            "countryCode": "GP"
+        }
+    },
+    {
+        "id": "country_phone_codes-GQ",
+        "name": "Equatorial Guinea",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+240",
+            "countryCode": "GQ"
+        }
+    },
+    {
+        "id": "country_phone_codes-GS",
+        "name": "South Georgia and the South Sandwich Islands",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+500",
+            "countryCode": "GS"
+        }
+    },
+    {
+        "id": "country_phone_codes-GT",
+        "name": "Guatemala",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+502",
+            "countryCode": "GT"
+        }
+    },
+    {
+        "id": "country_phone_codes-GU",
+        "name": "Guam",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1671",
+            "countryCode": "GU"
+        }
+    },
+    {
+        "id": "country_phone_codes-GW",
+        "name": "Guinea-Bissau",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+245",
+            "countryCode": "GW"
+        }
+    },
+    {
+        "id": "country_phone_codes-GY",
+        "name": "Guyana",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+595",
+            "countryCode": "GY"
+        }
+    },
+    {
+        "id": "country_phone_codes-HK",
+        "name": "Hong Kong",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+852",
+            "countryCode": "HK"
+        }
+    },
+    {
+        "id": "country_phone_codes-HM",
+        "name": "Heard Island and McDonald Islands",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+672",
+            "countryCode": "HM"
+        }
+    },
+    {
+        "id": "country_phone_codes-HN",
+        "name": "Honduras",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+504",
+            "countryCode": "HN"
+        }
+    },
+    {
+        "id": "country_phone_codes-HR",
+        "name": "Croatia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+385",
+            "countryCode": "HR"
+        }
+    },
+    {
+        "id": "country_phone_codes-HT",
+        "name": "Haiti",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+509",
+            "countryCode": "HT"
+        }
+    },
+    {
+        "id": "country_phone_codes-HU",
+        "name": "Hungary",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+36",
+            "countryCode": "HU"
+        }
+    },
+    {
+        "id": "country_phone_codes-ID",
+        "name": "Indonesia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+62",
+            "countryCode": "ID"
+        }
+    },
+    {
+        "id": "country_phone_codes-IE",
+        "name": "Ireland",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+353",
+            "countryCode": "IE"
+        }
+    },
+    {
+        "id": "country_phone_codes-IL",
+        "name": "Israel",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+972",
+            "countryCode": "IL"
+        }
+    },
+    {
+        "id": "country_phone_codes-IM",
+        "name": "Isle of Man",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+44",
+            "countryCode": "IM"
+        }
+    },
+    {
+        "id": "country_phone_codes-IN",
+        "name": "India",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+91",
+            "countryCode": "IN"
+        }
+    },
+    {
+        "id": "country_phone_codes-IO",
+        "name": "British Indian Ocean Territory (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+246",
+            "countryCode": "IO"
+        }
+    },
+    {
+        "id": "country_phone_codes-IQ",
+        "name": "Iraq",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+964",
+            "countryCode": "IQ"
+        }
+    },
+    {
+        "id": "country_phone_codes-IR",
+        "name": "Iran (Islamic Republic of)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+98",
+            "countryCode": "IR"
+        }
+    },
+    {
+        "id": "country_phone_codes-IS",
+        "name": "Iceland",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+354",
+            "countryCode": "IS"
+        }
+    },
+    {
+        "id": "country_phone_codes-IT",
+        "name": "Italy",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+39",
+            "countryCode": "IT"
+        }
+    },
+    {
+        "id": "country_phone_codes-JE",
+        "name": "Jersey",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+44",
+            "countryCode": "JE"
+        }
+    },
+    {
+        "id": "country_phone_codes-JM",
+        "name": "Jamaica",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1876",
+            "countryCode": "JM"
+        }
+    },
+    {
+        "id": "country_phone_codes-JO",
+        "name": "Jordan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+962",
+            "countryCode": "JO"
+        }
+    },
+    {
+        "id": "country_phone_codes-JP",
+        "name": "Japan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+81",
+            "countryCode": "JP"
+        }
+    },
+    {
+        "id": "country_phone_codes-KE",
+        "name": "Kenya",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+254",
+            "countryCode": "KE"
+        }
+    },
+    {
+        "id": "country_phone_codes-KG",
+        "name": "Kyrgyzstan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+996",
+            "countryCode": "KG"
+        }
+    },
+    {
+        "id": "country_phone_codes-KH",
+        "name": "Cambodia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+855",
+            "countryCode": "KH"
+        }
+    },
+    {
+        "id": "country_phone_codes-KI",
+        "name": "Kiribati",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+686",
+            "countryCode": "KI"
+        }
+    },
+    {
+        "id": "country_phone_codes-KM",
+        "name": "Comoros (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+269",
+            "countryCode": "KM"
+        }
+    },
+    {
+        "id": "country_phone_codes-KN",
+        "name": "Saint Kitts and Nevis",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1869",
+            "countryCode": "KN"
+        }
+    },
+    {
+        "id": "country_phone_codes-KP",
+        "name": "Korea (the Democratic People's Republic of)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+850",
+            "countryCode": "KP"
+        }
+    },
+    {
+        "id": "country_phone_codes-KR",
+        "name": "Korea (the Republic of)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+82",
+            "countryCode": "KR"
+        }
+    },
+    {
+        "id": "country_phone_codes-KW",
+        "name": "Kuwait",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+965",
+            "countryCode": "KW"
+        }
+    },
+    {
+        "id": "country_phone_codes-KY",
+        "name": "Cayman Islands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+ 345",
+            "countryCode": "KY"
+        }
+    },
+    {
+        "id": "country_phone_codes-KZ",
+        "name": "Kazakhstan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+77",
+            "countryCode": "KZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-LA",
+        "name": "Lao People's Democratic Republic (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+850",
+            "countryCode": "KP"
+        }
+    },
+    {
+        "id": "country_phone_codes-LB",
+        "name": "Lebanon",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+961",
+            "countryCode": "LB"
+        }
+    },
+    {
+        "id": "country_phone_codes-LC",
+        "name": "Saint Lucia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1758",
+            "countryCode": "LC"
+        }
+    },
+    {
+        "id": "country_phone_codes-LI",
+        "name": "Liechtenstein",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+423",
+            "countryCode": "LI"
+        }
+    },
+    {
+        "id": "country_phone_codes-LK",
+        "name": "Sri Lanka",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+94",
+            "countryCode": "LK"
+        }
+    },
+    {
+        "id": "country_phone_codes-LR",
+        "name": "Liberia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+231",
+            "countryCode": "LR"
+        }
+    },
+    {
+        "id": "country_phone_codes-LS",
+        "name": "Lesotho",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+266",
+            "countryCode": "LS"
+        }
+    },
+    {
+        "id": "country_phone_codes-LT",
+        "name": "Lithuania",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+370",
+            "countryCode": "LT"
+        }
+    },
+    {
+        "id": "country_phone_codes-LU",
+        "name": "Luxembourg",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+352",
+            "countryCode": "LU"
+        }
+    },
+    {
+        "id": "country_phone_codes-LV",
+        "name": "Latvia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+371",
+            "countryCode": "LV"
+        }
+    },
+    {
+        "id": "country_phone_codes-LY",
+        "name": "Libya",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+231",
+            "countryCode": "LR"
+        }
+    },
+    {
+        "id": "country_phone_codes-MA",
+        "name": "Morocco",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+212",
+            "countryCode": "MA"
+        }
+    },
+    {
+        "id": "country_phone_codes-MC",
+        "name": "Monaco",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+377",
+            "countryCode": "MC"
+        }
+    },
+    {
+        "id": "country_phone_codes-MD",
+        "name": "Moldova (Republic of)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+373",
+            "countryCode": "MD"
+        }
+    },
+    {
+        "id": "country_phone_codes-ME",
+        "name": "Montenegro",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+382",
+            "countryCode": "ME"
+        }
+    },
+    {
+        "id": "country_phone_codes-MF",
+        "name": "Saint Martin (French part)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+590",
+            "countryCode": "MF"
+        }
+    },
+    {
+        "id": "country_phone_codes-MG",
+        "name": "Madagascar",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+261",
+            "countryCode": "MG"
+        }
+    },
+    {
+        "id": "country_phone_codes-MH",
+        "name": "Marshall Islands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+692",
+            "countryCode": "MH"
+        }
+    },
+    {
+        "id": "country_phone_codes-MK",
+        "name": "North Macedonia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+389",
+            "countryCode": "MK"
+        }
+    },
+    {
+        "id": "country_phone_codes-ML",
+        "name": "Mali",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+223",
+            "countryCode": "ML"
+        }
+    },
+    {
+        "id": "country_phone_codes-MM",
+        "name": "Myanmar",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+95",
+            "countryCode": "MM"
+        }
+    },
+    {
+        "id": "country_phone_codes-MN",
+        "name": "Mongolia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+976",
+            "countryCode": "MN"
+        }
+    },
+    {
+        "id": "country_phone_codes-MO",
+        "name": "Macao",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+853",
+            "countryCode": "MO"
+        }
+    },
+    {
+        "id": "country_phone_codes-MP",
+        "name": "Northern Mariana Islands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1670",
+            "countryCode": "MP"
+        }
+    },
+    {
+        "id": "country_phone_codes-MQ",
+        "name": "Martinique",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+596",
+            "countryCode": "MQ"
+        }
+    },
+    {
+        "id": "country_phone_codes-MR",
+        "name": "Mauritania",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+222",
+            "countryCode": "MR"
+        }
+    },
+    {
+        "id": "country_phone_codes-MS",
+        "name": "Montserrat",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1664",
+            "countryCode": "MS"
+        }
+    },
+    {
+        "id": "country_phone_codes-MT",
+        "name": "Malta",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+356",
+            "countryCode": "MT"
+        }
+    },
+    {
+        "id": "country_phone_codes-MU",
+        "name": "Mauritius",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+230",
+            "countryCode": "MU"
+        }
+    },
+    {
+        "id": "country_phone_codes-MV",
+        "name": "Maldives",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+960",
+            "countryCode": "MV"
+        }
+    },
+    {
+        "id": "country_phone_codes-MW",
+        "name": "Malawi",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+265",
+            "countryCode": "MW"
+        }
+    },
+    {
+        "id": "country_phone_codes-MX",
+        "name": "Mexico",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+52",
+            "countryCode": "MX"
+        }
+    },
+    {
+        "id": "country_phone_codes-MY",
+        "name": "Malaysia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+60",
+            "countryCode": "MY"
+        }
+    },
+    {
+        "id": "country_phone_codes-MZ",
+        "name": "Mozambique",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+258",
+            "countryCode": "MZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-NA",
+        "name": "Namibia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+264",
+            "countryCode": "NA"
+        }
+    },
+    {
+        "id": "country_phone_codes-NC",
+        "name": "New Caledonia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+687",
+            "countryCode": "NC"
+        }
+    },
+    {
+        "id": "country_phone_codes-NE",
+        "name": "Niger (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+227",
+            "countryCode": "NE"
+        }
+    },
+    {
+        "id": "country_phone_codes-NF",
+        "name": "Norfolk Island",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+672",
+            "countryCode": "NF"
+        }
+    },
+    {
+        "id": "country_phone_codes-NG",
+        "name": "Nigeria",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+234",
+            "countryCode": "NG"
+        }
+    },
+    {
+        "id": "country_phone_codes-NI",
+        "name": "Nicaragua",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+505",
+            "countryCode": "NI"
+        }
+    },
+    {
+        "id": "country_phone_codes-NL",
+        "name": "Netherlands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+31",
+            "countryCode": "NL"
+        }
+    },
+    {
+        "id": "country_phone_codes-NO",
+        "name": "Norway",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+47",
+            "countryCode": "NO"
+        }
+    },
+    {
+        "id": "country_phone_codes-NP",
+        "name": "Nepal",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+977",
+            "countryCode": "NP"
+        }
+    },
+    {
+        "id": "country_phone_codes-NR",
+        "name": "Nauru",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+674",
+            "countryCode": "NR"
+        }
+    },
+    {
+        "id": "country_phone_codes-NU",
+        "name": "Niue",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+683",
+            "countryCode": "NU"
+        }
+    },
+    {
+        "id": "country_phone_codes-NZ",
+        "name": "New Zealand",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+64",
+            "countryCode": "NZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-OM",
+        "name": "Oman",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+968",
+            "countryCode": "OM"
+        }
+    },
+    {
+        "id": "country_phone_codes-OT",
+        "name": "Other",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "",
+            "countryCode": "OT"
+        }
+    },
+    {
+        "id": "country_phone_codes-PA",
+        "name": "Panama",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+507",
+            "countryCode": "PA"
+        }
+    },
+    {
+        "id": "country_phone_codes-PE",
+        "name": "Peru",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+51",
+            "countryCode": "PE"
+        }
+    },
+    {
+        "id": "country_phone_codes-PF",
+        "name": "French Polynesia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+689",
+            "countryCode": "PF"
+        }
+    },
+    {
+        "id": "country_phone_codes-PG",
+        "name": "Papua New Guinea",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+675",
+            "countryCode": "PG"
+        }
+    },
+    {
+        "id": "country_phone_codes-PH",
+        "name": "Philippines (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+63",
+            "countryCode": "PH"
+        }
+    },
+    {
+        "id": "country_phone_codes-PK",
+        "name": "Pakistan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+92",
+            "countryCode": "PK"
+        }
+    },
+    {
+        "id": "country_phone_codes-PL",
+        "name": "Poland",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+48",
+            "countryCode": "PL"
+        }
+    },
+    {
+        "id": "country_phone_codes-PM",
+        "name": "Saint Pierre and Miquelon",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+508",
+            "countryCode": "PM"
+        }
+    },
+    {
+        "id": "country_phone_codes-PN",
+        "name": "Pitcairn",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+872",
+            "countryCode": "PN"
+        }
+    },
+    {
+        "id": "country_phone_codes-PR",
+        "name": "Puerto Rico",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1939",
+            "countryCode": "PR"
+        }
+    },
+    {
+        "id": "country_phone_codes-PS",
+        "name": "Palestine, State of",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+970",
+            "countryCode": "PS"
+        }
+    },
+    {
+        "id": "country_phone_codes-PT",
+        "name": "Portugal",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+351",
+            "countryCode": "PT"
+        }
+    },
+    {
+        "id": "country_phone_codes-PW",
+        "name": "Palau",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+680",
+            "countryCode": "PW"
+        }
+    },
+    {
+        "id": "country_phone_codes-PY",
+        "name": "Paraguay",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+595",
+            "countryCode": "PY"
+        }
+    },
+    {
+        "id": "country_phone_codes-QA",
+        "name": "Qatar",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+974",
+            "countryCode": "QA"
+        }
+    },
+    {
+        "id": "country_phone_codes-RE",
+        "name": "Reunion",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+262",
+            "countryCode": "RE"
+        }
+    },
+    {
+        "id": "country_phone_codes-RO",
+        "name": "Romania",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+40",
+            "countryCode": "RO"
+        }
+    },
+    {
+        "id": "country_phone_codes-RS",
+        "name": "Serbia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+381",
+            "countryCode": "RS"
+        }
+    },
+    {
+        "id": "country_phone_codes-RU",
+        "name": "Russian Federation (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+7",
+            "countryCode": "RU"
+        }
+    },
+    {
+        "id": "country_phone_codes-RW",
+        "name": "Rwanda",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+250",
+            "countryCode": "RW"
+        }
+    },
+    {
+        "id": "country_phone_codes-SA",
+        "name": "Saudi Arabia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+966",
+            "countryCode": "SA"
+        }
+    },
+    {
+        "id": "country_phone_codes-SB",
+        "name": "Solomon Islands",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+677",
+            "countryCode": "SB"
+        }
+    },
+    {
+        "id": "country_phone_codes-SC",
+        "name": "Seychelles",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+248",
+            "countryCode": "SC"
+        }
+    },
+    {
+        "id": "country_phone_codes-SD",
+        "name": "Sudan (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+211",
+            "countryCode": "SS"
+        }
+    },
+    {
+        "id": "country_phone_codes-SE",
+        "name": "Sweden",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+46",
+            "countryCode": "SE"
+        }
+    },
+    {
+        "id": "country_phone_codes-SG",
+        "name": "Singapore",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+65",
+            "countryCode": "SG"
+        }
+    },
+    {
+        "id": "country_phone_codes-SH",
+        "name": "Saint Helena, Ascension and Tristan da Cunha",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+290",
+            "countryCode": "SH"
+        }
+    },
+    {
+        "id": "country_phone_codes-SI",
+        "name": "Slovenia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+386",
+            "countryCode": "SI"
+        }
+    },
+    {
+        "id": "country_phone_codes-SJ",
+        "name": "Svalbard and Jan Mayen",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+47",
+            "countryCode": "SJ"
+        }
+    },
+    {
+        "id": "country_phone_codes-SK",
+        "name": "Slovakia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+421",
+            "countryCode": "SK"
+        }
+    },
+    {
+        "id": "country_phone_codes-SL",
+        "name": "Sierra Leone",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+232",
+            "countryCode": "SL"
+        }
+    },
+    {
+        "id": "country_phone_codes-SM",
+        "name": "San Marino",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+378",
+            "countryCode": "SM"
+        }
+    },
+    {
+        "id": "country_phone_codes-SN",
+        "name": "Senegal",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+221",
+            "countryCode": "SN"
+        }
+    },
+    {
+        "id": "country_phone_codes-SO",
+        "name": "Somalia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+252",
+            "countryCode": "SO"
+        }
+    },
+    {
+        "id": "country_phone_codes-SR",
+        "name": "Suriname",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+597",
+            "countryCode": "SR"
+        }
+    },
+    {
+        "id": "country_phone_codes-SS",
+        "name": "South Sudan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+211",
+            "countryCode": "SS"
+        }
+    },
+    {
+        "id": "country_phone_codes-ST",
+        "name": "SÃ£o TomÃ© and PrÃ­ncipe",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+239",
+            "countryCode": "ST"
+        }
+    },
+    {
+        "id": "country_phone_codes-SV",
+        "name": "El Salvador",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+503",
+            "countryCode": "SV"
+        }
+    },
+    {
+        "id": "country_phone_codes-SX",
+        "name": "Sint Maarten (Dutch part)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1-721",
+            "countryCode": "SX"
+        }
+    },
+    {
+        "id": "country_phone_codes-SY",
+        "name": "Syrian Arab Republic (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+963",
+            "countryCode": "SY"
+        }
+    },
+    {
+        "id": "country_phone_codes-SZ",
+        "name": "Eswatini",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+372",
+            "countryCode": "EE"
+        }
+    },
+    {
+        "id": "country_phone_codes-TC",
+        "name": "Turks and Caicos Islands (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1649",
+            "countryCode": "TC"
+        }
+    },
+    {
+        "id": "country_phone_codes-TD",
+        "name": "Chad",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+235",
+            "countryCode": "TD"
+        }
+    },
+    {
+        "id": "country_phone_codes-TF",
+        "name": "French Southern Territories (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+262",
+            "countryCode": "TF"
+        }
+    },
+    {
+        "id": "country_phone_codes-TG",
+        "name": "Togo",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+228",
+            "countryCode": "TG"
+        }
+    },
+    {
+        "id": "country_phone_codes-TH",
+        "name": "Thailand",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+66",
+            "countryCode": "TH"
+        }
+    },
+    {
+        "id": "country_phone_codes-TJ",
+        "name": "Tajikistan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+992",
+            "countryCode": "TJ"
+        }
+    },
+    {
+        "id": "country_phone_codes-TK",
+        "name": "Tokelau",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+690",
+            "countryCode": "TK"
+        }
+    },
+    {
+        "id": "country_phone_codes-TL",
+        "name": "Timor-Leste",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+670",
+            "countryCode": "TL"
+        }
+    },
+    {
+        "id": "country_phone_codes-TM",
+        "name": "Turkmenistan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+993",
+            "countryCode": "TM"
+        }
+    },
+    {
+        "id": "country_phone_codes-TN",
+        "name": "Tunisia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+216",
+            "countryCode": "TN"
+        }
+    },
+    {
+        "id": "country_phone_codes-TO",
+        "name": "Tonga",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+676",
+            "countryCode": "TO"
+        }
+    },
+    {
+        "id": "country_phone_codes-TR",
+        "name": "Turkey",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+90",
+            "countryCode": "TR"
+        }
+    },
+    {
+        "id": "country_phone_codes-TT",
+        "name": "Trinidad and Tobago",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1868",
+            "countryCode": "TT"
+        }
+    },
+    {
+        "id": "country_phone_codes-TV",
+        "name": "Tuvalu",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+688",
+            "countryCode": "TV"
+        }
+    },
+    {
+        "id": "country_phone_codes-TW",
+        "name": "Taiwan (Province of China)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+886",
+            "countryCode": "TW"
+        }
+    },
+    {
+        "id": "country_phone_codes-TZ",
+        "name": "Tanzania, United Republic of",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+255",
+            "countryCode": "TZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-UA",
+        "name": "Ukraine",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+380",
+            "countryCode": "UA"
+        }
+    },
+    {
+        "id": "country_phone_codes-UG",
+        "name": "Uganda",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+256",
+            "countryCode": "UG"
+        }
+    },
+    {
+        "id": "country_phone_codes-UK",
+        "name": "United Kingdom of Great Britain and Northern Ireland (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+44",
+            "countryCode": "UK"
+        }
+    },
+    {
+        "id": "country_phone_codes-UM",
+        "name": "United States Minor Outlying Islands",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1",
+            "countryCode": "UM"
+        }
+    },
+    {
+        "id": "country_phone_codes-US",
+        "name": "United States of America (the)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1",
+            "countryCode": "US"
+        }
+    },
+    {
+        "id": "country_phone_codes-UY",
+        "name": "Uruguay",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+598",
+            "countryCode": "UY"
+        }
+    },
+    {
+        "id": "country_phone_codes-UZ",
+        "name": "Uzbekistan",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+998",
+            "countryCode": "UZ"
+        }
+    },
+    {
+        "id": "country_phone_codes-VA",
+        "name": "Holy See (Vatican City State)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+379",
+            "countryCode": "VA"
+        }
+    },
+    {
+        "id": "country_phone_codes-VC",
+        "name": "Saint Vincent and the Grenadines",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1784",
+            "countryCode": "VC"
+        }
+    },
+    {
+        "id": "country_phone_codes-VE",
+        "name": "Venezuela (Bolivarian Republic of)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+58",
+            "countryCode": "VE"
+        }
+    },
+    {
+        "id": "country_phone_codes-VG",
+        "name": "Virgin Islands (British)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1284",
+            "countryCode": "VG"
+        }
+    },
+    {
+        "id": "country_phone_codes-VI",
+        "name": "Virgin Islands (U.S.)",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+1340",
+            "countryCode": "VI"
+        }
+    },
+    {
+        "id": "country_phone_codes-VN",
+        "name": "VietNam",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+84",
+            "countryCode": "VN"
+        }
+    },
+    {
+        "id": "country_phone_codes-VU",
+        "name": "Vanuatu",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+678",
+            "countryCode": "VU"
+        }
+    },
+    {
+        "id": "country_phone_codes-WF",
+        "name": "Wallis and Futuna",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+681",
+            "countryCode": "WF"
+        }
+    },
+    {
+        "id": "country_phone_codes-WS",
+        "name": "Samoa",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+685",
+            "countryCode": "WS"
+        }
+    },
+    {
+        "id": "country_phone_codes-YE",
+        "name": "Yemen",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+967",
+            "countryCode": "YE"
+        }
+    },
+    {
+        "id": "country_phone_codes-YT",
+        "name": "Mayotte",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+262",
+            "countryCode": "YT"
+        }
+    },
+    {
+        "id": "country_phone_codes-ZA",
+        "name": "South Africa",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+27",
+            "countryCode": "ZA"
+        }
+    },
+    {
+        "id": "country_phone_codes-ZM",
+        "name": "Zambia",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+260",
+            "countryCode": "ZM"
+        }
+    },
+    {
+        "id": "country_phone_codes-ZW",
+        "name": "Zimbabwe",
+        "type": "Country phone codes",
+        "extras": {
+            "phoneCode": "+263",
+            "countryCode": "ZW"
+        }
+    }
+]

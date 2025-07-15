@@ -1,0 +1,32 @@
+[
+  {
+    "id": "enrollment_status-completed",
+    "name": "Completed",
+    "description": "Completed",
+    "type": "Enrollment status"
+  },
+  {
+    "id": "enrollment_status-in_progress",
+    "name": "In progress",
+    "description": "In progress",
+    "type": "Enrollment status"
+  },
+  {
+    "id": "enrollment_status-not_applicable",
+    "name": "Not applicable",
+    "description": "Not applicable",
+    "type": "Enrollment status"
+  },
+  {
+    "id": "enrollment_status-pending",
+    "name": "Pending",
+    "description": "Pending",
+    "type": "Enrollment status"
+  },
+  {
+    "id": "enrollment_status-not_started",
+    "name": "Not started",
+    "description": "Not started",
+    "type": "Enrollment status"
+  }
+]

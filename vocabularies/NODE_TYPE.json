@@ -1,0 +1,26 @@
+[
+  {
+    "id": "node_type-eu_wide",
+    "name": "EU wide",
+    "description": "EU wide",
+    "type": "Node type"
+  },
+  {
+    "id": "node_type-national",
+    "name": "National",
+    "description": "National",
+    "type": "Node type"
+  },
+  {
+    "id": "node_type-regional",
+    "name": "Regional",
+    "description": "Regional",
+    "type": "Node type"
+  },
+  {
+    "id": "node_type-thematic",
+    "name": "Thematic",
+    "description": "Thematic",
+    "type": "Node type"
+  }
+]

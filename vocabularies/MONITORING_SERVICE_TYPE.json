@@ -1,0 +1,69 @@
+
+[
+  {
+    "id": "eu.eosc.container_platform.api",
+    "name": "Container Platform API",
+    "description": "Container Platform API",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.container_platform.gui",
+    "name": "Container Platform GUI",
+    "description": "Container Platform GUI",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.interactive_notebooks.api",
+    "name": "Interactive Notebooks API",
+    "description": "Interactive Notebooks API",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.interactive_notebooks.gui",
+    "name": "Interactive Notebooks GUI",
+    "description": "Interactive Notebooks GUI",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.storage.api",
+    "name": "Storage API",
+    "description": "Storage API",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.storage.gui",
+    "name": "Storage GUI",
+    "description": "Storage GUI",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.vm.api",
+    "name": "Virtual Machines API",
+    "description": "Virtual Machines API",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.vm.gui",
+    "name": "Virtual Machines GUI",
+    "description": "Virtual Machines GUI",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.workflow.api",
+    "name": "Workflow API",
+    "description": "Workflow API",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.workflow.gui",
+    "name": "Workflow GUI",
+    "description": "Workflow GUI",
+    "type": "Monitoring service type"
+  },
+  {
+    "id": "eu.eosc.hpc.access",
+    "name": "HPC Access",
+    "description": "HPC Access",
+    "type": "Monitoring service type"
+  },
+]

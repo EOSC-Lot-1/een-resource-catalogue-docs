@@ -1,0 +1,26 @@
+[
+    {
+        "id": "ds_protocol-oai",
+        "name": "OAI",
+        "description": "OAI",
+        "type": "Datasource Protocol"
+    },
+    {
+        "id": "ds_protocol-ftp",
+        "name": "FTP",
+        "description": "FTP",
+        "type": "Datasource Protocol"
+    },
+    {
+        "id": "ds_protocol-rest_api",
+        "name": "REST API",
+        "description": "REST API",
+        "type": "Datasource Protocol"
+    },
+    {
+        "id": "ds_protocol-other",
+        "name": "Other",
+        "description": "OAI",
+        "type": "Datasource Protocol"
+    }
+]

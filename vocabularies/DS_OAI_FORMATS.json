@@ -1,0 +1,20 @@
+[
+    {
+        "id": "ds_oai_formats-oai_datacite",
+        "name": "OAI datacite",
+        "description": "OAI datacite",
+        "type": "OAI-PMH formats"
+    },
+    {
+        "id": "ds_oai_formats-oai_dc",
+        "name": "OAI dc",
+        "description": "OAI dc",
+        "type": "OAI-PMH formats"
+    },
+    {
+        "id": "ds_oai_formats-oai_openaire",
+        "name": "OAI openAIRE",
+        "description": "OAI openAIRE",
+        "type": "OAI-PMH formats"
+    }
+]
