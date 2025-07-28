@@ -1708,7 +1708,15 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `modifiedBy`        | `String` | Yes  |No    | Person who modified the resource. |
 | `modifiedAt`        | `String` | No   |No    | Timestamp when the resource was modified.  |
 | `published` | `String` | No      |No |Indicates if resource is published.  |
----
+
+##### Acknowledgement
+
+| Field      | Type     | Required | Public| Description                          |
+|------------|----------|----------|-------|-----------------------------|
+| `catalogueStoreAck`  | `Boolean` | No       |No  | Acknowledgement for catalogue store.  |
+| `resourceHubAck`  | `Boolean` | No       | No |Acknowledgement for Resource Hub.  |
+| `monitoringServiceAck`  | `Boolean` | No    |No | Acknowledgement for monitoring service.  |
+| `securityContactAck`  | `Boolean` | No       | No   |Acknowledgement for security contact.  |
 
 ##### ServiceProviderDomain
 
