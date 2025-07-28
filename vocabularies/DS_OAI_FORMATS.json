@@ -16,5 +16,11 @@
         "name": "OAI openAIRE",
         "description": "OAI openAIRE",
         "type": "OAI-PMH formats"
+    },
+    {
+        "id": "ds_oai_formats-other",
+        "name": "Other",
+        "description": "Other",
+        "type": "OAI-PMH formats"
     }
 ]

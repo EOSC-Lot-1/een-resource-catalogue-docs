@@ -19,7 +19,7 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u117_
+_Resource Catalogue version: v5.0.0+u119_
 
 ---
 
@@ -42,13 +42,14 @@ _Resource Catalogue version: v5.0.0+u117_
     vii. [Vocabulary](#vocabulary)  
     viii. [Miscellaneous](#miscellaneous)  
 3. [List of Vocabularies](#list-of-vocabularies)
-4. [Data Validation](#data-validation)
 
 ---
 
 ## Controllers
 
-     
+Note: All operations handle resources as Bundle objects. \
+For example, GET and POST operations use a ServiceBundle containing the Service resource.
+
 - ### Datasource Controller
   
   #### Operations for Datasources
@@ -63,14 +64,14 @@ _Resource Catalogue version: v5.0.0+u117_
       ```
       
   - GET
-    - Returns the Datasource with the given id.
+    - Returns the DatasourceBundle with the given id.
       ```diff
       /datasources/{prefix}/{suffix}
       Params:
         prefix: String [required]
         suffix: String [required]
       ```
-    - Filter a list of Datasources based on a set of filters.
+    - Filter a list of DatasourceBundles based on a set of filters.
       ```diff
       /datasources
       Params:
@@ -81,13 +82,14 @@ _Resource Catalogue version: v5.0.0+u117_
         order: String (Order of results - asc/desc, default asc) [optional]
         sort: String (Field to use for ordering) [optional]
       ```
-      
+      Example: ```resource-catalogue-url/datasources?active=true&keyword=test1&quantity=50```
+
   - POST
     - Creates a new Datasource.
       ```diff
       /datasources
       Body:
-        Datasource JSON [required]
+        DatasourceBundle JSON [required]
       ```
         
   - PUT
@@ -95,7 +97,7 @@ _Resource Catalogue version: v5.0.0+u117_
       ```diff
       /datasources
       Body:
-        Datasource JSON [required]
+        DatasourceBundle JSON [required]
       ```
         
 - ### Interoperability Record Controller
@@ -130,7 +132,8 @@ _Resource Catalogue version: v5.0.0+u117_
         order: String (Order of results - asc/desc, default asc) [optional]
         sort: String (Field to use for ordering) [optional]
       ```
-      
+      Example: ```resource-catalogue-url/interoperability-records?active=true&keyword=test1&quantity=50```
+
   - POST
     - Creates a new Interoperability Record.
       ```diff
@@ -184,6 +187,8 @@ _Resource Catalogue version: v5.0.0+u117_
         quantity: String (Quantity to be fetched, default 10) [optional]
         order: String (Order of results - asc/desc, default asc) [optional]
         sort: String (Field to use for ordering) [optional]
+
+      Example: ```resource-catalogue-url/providers?active=true&keyword=test1&quantity=50```
 
   - POST
     - Create a new Provider.
@@ -240,6 +245,8 @@ _Resource Catalogue version: v5.0.0+u117_
           sort: String (Field to use for ordering) [optional]
       ```
       
+      Example: ```resource-catalogue-url/services?active=true&keyword=test1&quantity=50```
+
   - POST
     - Creates a new Service.
       ```diff
@@ -292,6 +299,8 @@ _Resource Catalogue version: v5.0.0+u117_
           sort: String (Field to use for ordering) [optional]
       ```
       
+      Example: ```resource-catalogue-url/training-resources?active=true&keyword=test1&quantity=50```
+
   - POST
     - Creates a new Training Resource.
       ```diff
@@ -346,6 +355,8 @@ _Resource Catalogue version: v5.0.0+u117_
           sort: String (Field to use for ordering) [optional]
       ```
       
+      Example: ```resource-catalogue-url/tools?active=true&keyword=test1&quantity=50```
+
   - POST
     - Creates a new Tool.
       ```diff
@@ -410,15 +421,17 @@ _Resource Catalogue version: v5.0.0+u117_
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#RESOURCE_STATUS)). |
 | `resourceOrganisationGroupID`               | `String`       | No       | No     |ID of the provider's organization
 | `nodeId`               | `String`       | No       | Yes     |ID of the node the resource belongs
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.                      |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                   |
 | `softwareRepository`   | `Boolean`      | No       | Yes     | Indicates whether the datasource is a software repository. |
-| `originalOpenAIREId`   | `Boolean`      | No       | Yes     | Original OpenAIRE ID, if datasource already exists in the OpenAIRE Catalogue. |
+| `originalOpenAIREId`   | `String`      | No       | Yes     | Original OpenAIRE ID, if datasource already exists in the OpenAIRE Catalogue. |
+| `datasourceType`   | `String`      | No       | Yes     | Type of the datasource ([DATASOURCE_TYPE](#DATASOURCE_TYPE)). |
 | `oaiPmhInfo`           | `OaiPmhInfo`   | No      | Yes    | Metadata related to oai-pmh.                           |
+| `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
 | `datasource`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
@@ -434,14 +447,14 @@ _Resource Catalogue version: v5.0.0+u117_
 | `preservationPolicyURL`| `URL`          | No       | Yes    | URL of the preservation policy.                             |
 | `versionControl`       | `Boolean`      | No       | Yes    | Indicates if version control is used.                       |
 | `persistentIdentitySystems` | `List<PersistentIdentitySystem>` | No | Yes | List of persistent identity systems associated with the datasource. |
-| `jurisdiction`         | `String`       | Yes      | Yes    | Jurisdiction where the datasource operates.                 |
-| `datasourceClassification` | `String`   | Yes      | Yes    | Classification of the datasource.                           |
-| `researchEntityTypes`  | `List<String>` | No       | Yes    | List of research entity types related to the datasource.    |
+| `jurisdiction`         | `String`       | Yes      | Yes    | Jurisdiction where the datasource operates ([DS_JURISDICTION](#DS_JURISDICTION)).                 |
+| `datasourceClassification` | `String`   | Yes      | Yes    | Classification of the datasource ([DS_CLASSIFICATION](#DS_CLASSIFICATION)).                           |
+| `researchEntityTypes`  | `List<String>` | No       | Yes    | List of research entity types related to the datasource  ([DS_RESEARCH_ENTITY_TYPE](#DS_RESEARCH_ENTITY_TYPE)).    |
 | `thematic`             | `Boolean`      | Yes      | Yes    | Indicates if the datasource is thematic.                    |
 | `researchProductLicensings` | `List<ResearchProductLicensing>` | No | Yes | List of research product licensing details.                 |
-| `researchProductAccessPolicies` | `List<String>` | No | Yes | List of research product access policies.                   |
+| `researchProductAccessPolicies` | `List<String>` | No | Yes | List of research product access policies ([DS_COAR_ACCESS_RIGHTS_1_0](#DS_COAR_ACCESS_RIGHTS_1_0)).                   |
 | `researchProductMetadataLicensing` | `ResearchProductMetadataLicensing` | No | Yes | Metadata licensing details for research products.           |
-| `researchProductMetadataAccessPolicies` | `List<String>` | No | Yes | List of research product metadata access policies.          |
+| `researchProductMetadataAccessPolicies` | `List<String>` | No | Yes | List of research product metadata access policies ([DS_COAR_ACCESS_RIGHTS_1_0](#DS_COAR_ACCESS_RIGHTS_1_0)).          |
 | `harvestable`          | `Boolean`      | No       | Yes    | Indicates if the datasource is harvestable.                 |
 
 
@@ -449,22 +462,22 @@ _Resource Catalogue version: v5.0.0+u117_
 
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
-| `protocol`                   | `String`       | No | Yes    | Protocol used for OAI-PMH.                       |
+| `protocol`                   | `String`       | No | Yes    | Protocol used for OAI-PMH ([DS_PROTOCOL](#DS_PROTOCOL)).                       |
 | `baseUrl`                   | `String`       | No | Yes    | Url of OAI-PMH endpoint.                       |
 | `sets`                   | `List<String>`       | No | Yes    | OAI-PMH sets.                       |
-| `format`                   | `String`       | No | Yes    | OAI format.                       |
-| `compatibility`                   | `String`       | No | Yes    | Unique identifier for the datasource.                       |
+| `format`                   | `String`       | No | Yes    | OAI format ([DS_FORMAT](#DS_FORMAT)).                       |
+| `compatibility`                   | `String`       | No | Yes    | Datasource oai compatibility ([DS_COMPATIBILITY](#DS_COMPATIBILITY)).                       |
 | `openAIRECompliance`            | `String`       | No | Yes    | Indicates if resource is compliant with openAIRE specifications.                   |
-| `repositoryIdentifier`           | `Identifier`       | No | Yes    | Identifier for the repository.          
-| `alternativeIdentifiers`                   | `List<Identifier>`       | No | Yes    | Alternative identifiers.                  |
+| `repositoryIdentifier`           | `AlternativeIdentifier`       | No | Yes    | Identifier for the repository.          
+| `alternativeIdentifiers`                   | `List<AlternativeIdentifier>`       | No | Yes    | Alternative identifiers.                  |
 
 
 ##### PersistentIdentitySystem
 
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
-| `persistentIdentityEntityType`        | `String`         |Yes              | Yes      | Type of the persistent identity entity.           |
-| `persistentIdentityEntityTypeSchemes` | `List<String>`     |Yes            | Yes       | Schemes for the persistent identity entity types. |
+| `persistentIdentityEntityType`        | `String`         |Yes              | Yes      | Type of the persistent identity entity ([DS_RESEARCH_ENTITY_TYPE](#DS_RESEARCH_ENTITY_TYPE)).           |
+| `persistentIdentityEntityTypeSchemes` | `List<String>`     |Yes            | Yes       | Schemes for the persistent identity entity types ([DS_PERSISTENT_IDENTITY_SCHEME](#DS_PERSISTENT_IDENTITY_SCHEME)). |
 
 ##### ResearchProductLicensing
 
@@ -480,6 +493,12 @@ _Resource Catalogue version: v5.0.0+u117_
 | `researchProductMetadataLicenseName` | `String` | Yes | Yes     | Name of the research product metadata license. |
 | `researchProductMetadataLicenseURL`  | `URL`    | Yes  |Yes    | URL of the research product metadata license.  |
 
+##### Alternative Identifier
+
+| Field                  | Type           | Required | Public | Description                                                 |
+|------------------------|----------------|----------|--------|-------------------------------------------------------------|
+| `type`        | `String`         |Yes              | Yes      | Type of the identifier.           |
+| `value` | `String`     |Yes            | Yes       | Value of the identifier. |
 ### Example
 
 ```json
@@ -500,14 +519,14 @@ _Resource Catalogue version: v5.0.0+u117_
     "originalOpenAIREId": "openaireId",
     "softwareRepository": false,
     "oaiPmhInfo": {
-        "protocol": "oai",
+        "protocol": "ds_protocol-oai",
         "baseUrl": "https://example.com/oai/request",
         "sets": [
             "set1",
             "set2"
         ],
-        "format": "oai dc",
-        "compatibility": "not compatible",
+        "format": "ds_oai_formats-oai_datacite",
+        "compatibility": "ds_oai_compatibility-not_compatible",
         "openAIRECompliance": false,
         "repositoryIdentifier": {
             "type": "type1",
@@ -525,18 +544,18 @@ _Resource Catalogue version: v5.0.0+u117_
         "versionControl": true,
         "persistentIdentitySystems": [
             {
-                "persistentIdentityEntityType": "Type1",
+                "persistentIdentityEntityType": "ds_research_entity_type-organizations",
                 "persistentIdentityEntityTypeSchemes": [
-                    "Scheme1",
-                    "Scheme2"
+                    "ds_persistent_identity_scheme-doi",
+                    "ds_persistent_identity_scheme-handle"
                 ]
             }
         ],
-        "jurisdiction": "Country X",
-        "datasourceClassification": "Scientific database",
+        "jurisdiction": "ds_jurisdiction-global",
+        "datasourceClassification": "ds_classification-scientific_database",
         "researchEntityTypes": [
-            "Type1",
-            "Type2"
+            "ds_research_entity_type-projects",
+            "ds_research_entity_type-organizations"
         ],
         "thematic": true,
         "researchProductLicensings": [
@@ -546,16 +565,15 @@ _Resource Catalogue version: v5.0.0+u117_
             }
         ],
         "researchProductAccessPolicies": [
-            "Policy1",
-            "Policy2"
+            "ds_coar_access_rights_1_0-open_access"
         ],
         "researchProductMetadataLicensing": {
             "researchProductMetadataLicenseName": "Metadata License1",
             "researchProductMetadataLicenseURL": "https://example.com/metadata-license1"
         },
         "researchProductMetadataAccessPolicies": [
-            "MetadataPolicy1",
-            "MetadataPolicy2"
+            "ds_coar_access_rights_1_0-restricted_access",
+            "ds_coar_access_rights_1_0-open_access"
         ],
         "harvestable": true
     }
@@ -570,12 +588,13 @@ _Resource Catalogue version: v5.0.0+u117_
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
+| `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
 | `interoperabilityRecord`           | `InteroperabilityRecord`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
@@ -595,9 +614,9 @@ _Resource Catalogue version: v5.0.0+u117_
 | `relatedStandards`       | `List<RelatedStandard>`       | No   | Yes    | List of related standards connected to the interoperability record.              |
 | `rights`                 | `List<Right>`                 | Yes   | Yes   | List of rights associated with the record.                                       |
 | `description`            | `String`                      | Yes    | Yes  | Description of the interoperability record.                                      |
-| `status`                 | `String`                      | Yes   | Yes   | Current status of the interoperability record.                                   |
-| `domain`                 | `String`                      | No    | Yes   | Domain to which the record pertains.                                             |
-| `eoscGuidelineType`      | `String`                      | Yes   | Yes   | Type of EOSC (European Open Science Cloud) guideline associated with the record. |
+| `status`                 | `String`                      | Yes   | Yes   | Current status of the interoperability record ([IR_STATUS](#IR_STATUS)).                                   |
+| `domain`                 | `String`                      | No    | Yes   | Domain to which the record pertains ([SCIENTIFIC_DOMAIN](#SCIENTIFIC_DOMAIN)).                                             |
+| `eoscGuidelineType`      | `String`                      | Yes   | Yes   | Type of EOSC (European Open Science Cloud) guideline associated with the record ([IR_EOSC_GUIDELINE_TYPE](#IR_EOSC_GUIDELINE_TYPE)). |
 | `eoscIntegrationOptions` | `List<String>`                | No     | Yes  | Options for integrating the record into EOSC.                                    |
 | `alternativeIdentifiers` | `List<AlternativeIdentifier>` | No     | Yes  | Alternative identifiers for the record.                                          |
 
@@ -608,7 +627,7 @@ _Resource Catalogue version: v5.0.0+u117_
 | Field            | Type     | Required | Description                                      |
 |------------------|----------|----------|--------------------------------------------------|
 | `identifier`     | `String` | Yes      | Main identifier for the interoperability record. |
-| `identifierType` | `String` | Yes      | Type of the identifier, e.g., DOI, Handle.       |
+| `identifierType` | `String` | Yes      | Type of the identifier, e.g., DOI, Handle ([IR_IDENTIFIER_TYPE](#IR_IDENTIFIER_TYPE)).       |
 
 ##### Creator
 
@@ -625,7 +644,7 @@ _Resource Catalogue version: v5.0.0+u117_
 | Field         | Type     | Required | Description                                   |
 |---------------|----------|----------|-----------------------------------------------|
 | `creatorName` | `String` | Yes      | Full name of the creator.                     |
-| `nameType`    | `String` | Yes      | Type of name, e.g., personal, organizational. |
+| `nameType`    | `String` | Yes      | Type of name, e.g., personal, organizational ([IR_NAME_TYPE](#IR_NAME_TYPE)). |
 
 ##### CreatorAffiliationInfo
 
@@ -639,7 +658,7 @@ _Resource Catalogue version: v5.0.0+u117_
 | Field                 | Type     | Required | Description                                         |
 |-----------------------|----------|----------|-----------------------------------------------------|
 | `resourceType`        | `String` | Yes      | Specific type of the resource, e.g., dataset, tool. |
-| `resourceTypeGeneral` | `String` | Yes      | General category of the resource type.              |
+| `resourceTypeGeneral` | `String` | Yes      | General category of the resource type ([IR_RESOURCE_TYPE_GENERAL](#IR_RESOURCE_TYPE_GENERAL)).              |
 
 ##### RelatedStandard
 
@@ -655,13 +674,6 @@ _Resource Catalogue version: v5.0.0+u117_
 | `rightTitle`      | `String` | Yes      | Title of the right associated with the record. |
 | `rightURI`        | `URL`    | Yes      | URI linking to the right.                      |
 | `rightIdentifier` | `String` | Yes      | Identifier for the right.                      |
-
-##### AlternativeIdentifier
-
-| Field   | Type     | Description                                      |
-|---------|----------|--------------------------------------------------|
-| `type`  | `String` | Type of alternative identifier, e.g., DOI, ISBN. |
-| `value` | `String` | Value of the alternative identifier.             |
 
 ### Example
 
@@ -682,11 +694,10 @@ _Resource Catalogue version: v5.0.0+u117_
     "id": "interop_001",
     "interoperabilityRecord": {
         "id": "interop_001",
-        "catalogueId": "catalogue_001",
         "providerId": "provider_001",
         "identifierInfo": {
             "identifier": "10.1234/interop",
-            "identifierType": "DOI"
+            "identifierType": "ir_identifier_type-doi"
         },
         "creators": [
             {
@@ -727,9 +738,9 @@ _Resource Catalogue version: v5.0.0+u117_
             }
         ],
         "description": "This is a sample interoperability record description.",
-        "status": "Active",
-        "domain": "Data Science",
-        "eoscGuidelineType": "EOSC Interoperability",
+        "status": "ir_status-on_hold",
+        "domain": "scientific_domain-engineering_and_technology",
+        "eoscGuidelineType": "ir_eosc_guideline_type-eosc_core_interoperability_guideline",
         "eoscIntegrationOptions": [
             "Integration A",
             "Integration B"
@@ -751,13 +762,14 @@ _Resource Catalogue version: v5.0.0+u117_
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
 | `nodeInfo`           | `NodeInfo`   | No      | Yes    | Metadata of the actual resource.                           |
+| `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
 | `provider`           | `Provider`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
@@ -770,39 +782,32 @@ _Resource Catalogue version: v5.0.0+u117_
 | `name`                    | `String`                      | Yes      | Yes      |Full name of the provider.                                                                        |
 | `website`                 | `URL`                         | Yes      |Yes      | URL of the provider's website.                                                                    |
 | `legalEntity`             | `boolean`                     | Yes      | Yes      |Indicates if the provider is a legal entity.                                                      |
-| `legalStatus`             | `String`                      | No       | Yes      |Legal status of the provider.                                                                     |
-| `hostingLegalEntity`      | `String`                      | No       |Yes      | Hosting legal entity responsible for the provider.                                                |
+| `legalStatus`             | `String`                      | No       | Yes      |Legal status of the provider([PROVIDER_LEGAL_STATUS](#PROVIDER_LEGAL_STATUS)).                                                                     |
+| `hostingLegalEntity`      | `String`                      | No       |Yes      | Hosting legal entity responsible for the provider ([PROVIDER_HOSTING_LEGAL_ENTITY](#PROVIDER_HOSTING_LEGAL_ENTITY)).                                                |
 | `alternativeIdentifiers`  | `List<AlternativeIdentifier>` | No       |Yes      | List of alternative identifiers for the provider.                                                 |
 | `description`             | `String`                      | Yes      | Yes      |Description of the provider.                                                                      |
 | `logo`                    | `URL`                         | Yes      |Yes      | URL of the provider's logo.                                                                       |
 | `multimedia`              | `List<MultimediaPair>`        | No       | Yes      |List of multimedia items associated with the provider.                                            |
 | `scientificDomains`       | `List<ServiceProviderDomain>` | No       | Yes      |Scientific domains related to the provider's services.                                            |
 | `tags`                    | `List<String>`                | No       | Yes      |Tags associated with the provider.                                                                |
-| `structureTypes`          | `List<String>`                | No       | Yes      |Types of structures associated with the provider.                                                 |
+| `structureTypes`          | `List<String>`                | No       | Yes      |Types of structures associated with the provider ([PROVIDER_STRUCTURE_TYPE](#PROVIDER_STRUCTURE_TYPE)).                                                 |
 | `location`                | `ProviderLocation`            | Yes      | Yes      |Physical location details of the provider.                                                        |
 | `mainContact`             | `ProviderMainContact`         | Yes      | No      |Main contact information for the provider.                                                        |
 | `publicContacts`          | `List<ProviderPublicContact>` | Yes      |Yes      | List of public contacts for the provider.                                                         |
 | `lifeCycleStatus`         | `String`                      | No       | Yes      |Current lifecycle status of the provider.                                                         |
 | `certifications`          | `List<String>`                | No       | Yes      |List of certifications held by the provider.                                                      |
-| `participatingCountries`  | `List<String>`                | No       | Yes      |List of countries participating in the provider's services.                                       |
+| `participatingCountries`  | `List<String>`                | No       | Yes      |List of countries participating in the provider's services ([COUNTRY](#COUNTRY)).                                       |
 | `affiliations`            | `List<String>`                | No       | Yes      |List of affiliations related to the provider.                                                     |
-| `networks`                | `List<String>`                | No       | Yes      |Networks associated with the provider.                                                                 |
-| `esfriDomains`            | `List<String>`                | No       |Yes      | ESFRI (European Strategy Forum on Research Infrastructures) domains associated with the provider. |
-| `esfriType`               | `String`                      | No       |Yes      | ESFRI type classification of the provider.                                                        |
+| `networks`                | `List<String>`                | No       | Yes      |Networks associated with the provider ([PROVIDER_NETWORK](#PROVIDER_NETWORK)).                                                                 |
+| `esfriDomains`            | `List<String>`                | No       |Yes      | ESFRI (European Strategy Forum on Research Infrastructures) domains associated with the provider ([PROVIDER_ESFRI_DOMAIN](#PROVIDER_ESFRI_DOMAIN)). |
+| `esfriType`               | `String`                      | No       |Yes      | ESFRI type classification of the provider ([PROVIDER_ESFRI_TYPE_](#PROVIDER_ESFRI_TYPE)).                                                        |
 | `merilScientificDomains`  | `List<ProviderMerilDomain>`   | No       | Yes      |MERIL scientific domains associated with the provider.                                            |
-| `areasOfActivity`         | `List<String>`                | No       | Yes      |Areas of activity related to the provider's services.                                             |
-| `societalGrandChallenges` | `List<String>`                | No       |Yes      | Societal grand challenges addressed by the provider.                                              |
+| `areasOfActivity`         | `List<String>`                | No       | Yes      |Areas of activity related to the provider's services ([PROVIDER_AREA_OF_ACTIVITY](#PROVIDER_AREA_OF_ACTIVITY)).                                             |
+| `societalGrandChallenges` | `List<String>`                | No       |Yes      | Societal grand challenges addressed by the provider ([PROVIDER_SOCIETAL_GRAND_CHALLENGE](#PROVIDER_SOCIETAL_GRAND_CHALLENGE)).                                             |
 | `nationalRoadmaps`        | `List<String>`                | No       |Yes      | National roadmaps associated with the provider.                                                   |
 | `users`                   | `List<User>`                  | Yes      |No      | List of users associated with the provider.                                                       |
 
 #### Nested Objects
-
-##### AlternativeIdentifier
-
-| Field   | Type     | Required | Description                          |
-|---------|----------|----------|--------------------------------------|
-| `type`  | `String` | No       | Type of the alternative identifier.  |
-| `value` | `String` | No       | Value of the alternative identifier. |
 
 ##### MultimediaPair
 
@@ -811,22 +816,15 @@ _Resource Catalogue version: v5.0.0+u117_
 | `multimediaURL`  | `URL`    | Yes      | URL to the multimedia resource.  |
 | `multimediaName` | `String` | No       | Name of the multimedia resource. |
 
-##### ServiceProviderDomain
-
-| Field                 | Type     | Required | Description                                    |
-|-----------------------|----------|----------|------------------------------------------------|
-| `scientificDomain`    | `String` | Yes      | Scientific domain related to the catalogue.    |
-| `scientificSubdomain` | `String` | No       | Scientific subdomain related to the catalogue. |
-
 ##### ProviderLocation
 
 | Field                 | Type      | Required | Description                                     |
 |-----------------------|-----------|----------|-------------------------------------------------|
-| `streetNameAndNumber` | `String`  | Yes      | Street address of the catalogue's location.     |
-| `postalCode`          | `String`  | Yes      | Postal code of the catalogue's location.        |
-| `city`                | `String`  | Yes      | City where the catalogue is located.            |
-| `region`              | `String`  | No       | Region or state where the catalogue is located. |
-| `country`             | `String`  | Yes      | Country where the catalogue is located.         |
+| `streetNameAndNumber` | `String`  | Yes      | Street address of the provider's location.     |
+| `postalCode`          | `String`  | Yes      | Postal code of the provider's location.        |
+| `city`                | `String`  | Yes      | City where the provider is located.            |
+| `region`              | `String`  | No       | Region or state where the provider is located. |
+| `country`             | `String`  | Yes      | Country where the provider is located ([COUNTRY](#COUNTRY)).         |
 
 ##### ProviderMainContact
 
@@ -854,8 +852,8 @@ _Resource Catalogue version: v5.0.0+u117_
 
 | Field                      | Type     | Required | Description                                         |
 |----------------------------|----------|----------|-----------------------------------------------------|
-| `merilScientificDomain`    | `String` | Yes      | MERIL scientific domain related to the provider.    |
-| `merilScientificSubdomain` | `String` | No       | MERIL scientific subdomain related to the provider. |
+| `merilScientificDomain`    | `String` | Yes      | MERIL scientific domain related to the provider ([PROVIDER_MERIL_SCIENTIFIC_DOMAIN](#PROVIDER_MERIL_SCIENTIFIC_DOMAIN)).    |
+| `merilScientificSubdomain` | `String` | No       | MERIL scientific subdomain related to the provider ([PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN](#PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN)). |
 
 ##### NodeInfo 
 
@@ -863,17 +861,18 @@ _Resource Catalogue version: v5.0.0+u117_
 |----------------------------|----------|----------|-------------------------|----------------------------|
 | `isNode`    | `String` | No      |Yes |Indicates if resource is a Node.    |
 | `openAIRECommunityTag` | `String` | No | Yes | OpenAIRE tag if node exists there. |
-| `nodeType`    | `String` | No      |No |Type of the Node.    |
+| `nodeType`    | `String` | No      |No |Type of the Node ([NODE_TYPE](#NODE_TYPE)).    |
 | `enrollmentSteps`    | `EnrollmentSteps`  | No      |Yes |Steps for node enrollement.    |
 
 ##### EnrollmentSteps 
 
 | Field                      | Type     | Required | Public | Description                                         |
 |----------------------------|----------|----------|-------------------------|----------------------------|
-| `aaiEnrollment`    | `String` | No      |No |Aai enrollment status.    |
-| `cataloguesEnrollment` | `String` | No | No |Catalogues enrollment status. |
-| `helpdeskEnrollment`    | `String` | No      |No |Helpdesk enrollment status.    |
-| `monitoringEnrollment`    | `String`    | No      |No |Monitoring enrollment status.    |
+| `aaiEnrollment`    | `String` | No      |No |Aai enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)).    |
+| `cataloguesEnrollment` | `String` | No | No |Catalogues enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)). |
+| `helpdeskEnrollment`    | `String` | No      |No |Helpdesk enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)).    |
+| `monitoringEnrollment`    | `String`    | No      |No |Monitoring enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)).    |
+
 
 #### Example
 
@@ -907,20 +906,20 @@ _Resource Catalogue version: v5.0.0+u117_
             "userRole": "admin",
             "type": "onboard",
             "comment": "null",
-            "actionType": "offboarded"
+            "actionType": "approved"
         }
     ],
-    "status": "offboarded",
+    "status": "approved",
     "resourceOrganisationGroupID": "groupId",
     "nodeInfo": {
         "isNode": true,
         "openAIRECommunityTag": "openAIREtag",
-        "nodeType": "thematic",
+        "nodeType": "node_type-thematic",
         "enrollmentSteps": {
-            "aaiEnrollment": "completed",
-            "cataloguesEnrollment": "completed",
-            "helpdeskEnrollment": "completed",
-            "monitoringEnrollment": "completed"
+            "aaiEnrollment": "enrollment_status-completed",
+            "cataloguesEnrollment": "enrollment_status-completed",
+            "helpdeskEnrollment": "enrollment_status-completed",
+            "monitoringEnrollment": "enrollment_status-completed"
         }
     },
     "id": "provider_001",
@@ -930,8 +929,8 @@ _Resource Catalogue version: v5.0.0+u117_
         "name": "Sample Provider",
         "website": "https://example.com",
         "legalEntity": true,
-        "legalStatus": "Non-profit",
-        "hostingLegalEntity": "Hosting Entity",
+        "legalStatus": "provider_legal_status-non_for_profit_company",
+        "hostingLegalEntity": "provider_hosting_legal_entity-athena",
         "alternativeIdentifiers": [
             {
                 "type": "Other ID Type",
@@ -948,8 +947,8 @@ _Resource Catalogue version: v5.0.0+u117_
         ],
         "scientificDomains": [
             {
-                "scientificDomain": "Science",
-                "scientificSubdomain": "Physics"
+                "scientificDomain": "scientific_domain-generic",
+                "scientificSubdomain": "scientific_subdomain-generic-generic"
             }
         ],
         "tags": [
@@ -957,15 +956,14 @@ _Resource Catalogue version: v5.0.0+u117_
             "research"
         ],
         "structureTypes": [
-            "type1",
-            "type2"
+            "provider_structure_type-other"
         ],
         "location": {
             "streetNameAndNumber": "123 Main St",
             "postalCode": "12345",
             "city": "Sample City",
-            "region": "Sample Region",
-            "country": "Sample Country"
+            "region": "EU",
+            "country": "EL"
         },
         "mainContact": {
             "firstName": "John",
@@ -983,14 +981,14 @@ _Resource Catalogue version: v5.0.0+u117_
                 "position": "Support"
             }
         ],
-        "lifeCycleStatus": "Active",
+        "lifeCycleStatus": "provider_life_cycle_status-other",
         "certifications": [
             "ISO9001",
             "ISO27001"
         ],
         "participatingCountries": [
-            "Country1",
-            "Country2"
+            "IT",
+            "GB"
         ],
         "affiliations": [
             "Affiliation1",
@@ -1000,25 +998,23 @@ _Resource Catalogue version: v5.0.0+u117_
             "Network1",
             "Network2"
         ],
-        "catalogueId": "catalogue_001",
         "esfriDomains": [
-            "Domain1",
-            "Domain2"
+            "provider_esfri_domain-environment",
+            "provider_esfri_domain-other"
         ],
-        "esfriType": "Type1",
+        "esfriType": "provider_esfri_type-project",
         "merilScientificDomains": [
             {
-                "merilScientificDomain": "MERIL Domain",
-                "merilScientificSubdomain": "Subdomain"
+                "merilScientificDomain": "provider_meril_scientific_domain-other",
+                "merilScientificSubdomain": "provider_meril_scientific_domain-other-other"
             }
         ],
         "areasOfActivity": [
-            "Activity1",
-            "Activity2"
+            "provider_area_of_activity-basic_research",
+            "provider_area_of_activity-applied_research"
         ],
         "societalGrandChallenges": [
-            "Challenge1",
-            "Challenge2"
+            "provider_societal_grand_challenge-energy"
         ],
         "nationalRoadmaps": [
             "Roadmap1",
@@ -1043,16 +1039,18 @@ _Resource Catalogue version: v5.0.0+u117_
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
-| `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
+| `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
 | `resourceExtras` | `ResourceExtras`  | No       | Yes     | Extra resource information.                  |      |
-| `sites`             | `List<Site>`     | No       | Yes    | Information on the service's sites.    
+| `sites`             | `List<Site>`     | No       | Yes    | Information on the service's sites.  
+| `onboardingIntegration`           | `OnboardingIntegration`       | No| Yes    | Information about onboarding integration steps.
+| `nodeId`                   | `String`       | No| Yes    | ID of the node the resource belongs.
+| `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `service`           | `Service`   | Yes      | Yes    | Metadata of the actual resource.                           |
-| `nodeId`                   | `String`       | No| Yes    | ID of the node the resource belongs
 
 ### Service
 
@@ -1072,22 +1070,22 @@ _Resource Catalogue version: v5.0.0+u117_
 | `useCases`                    | `List<UseCasesPair>`          | No       |  Yes    |List of use cases demonstrating the service in action.                    |
 | `scientificDomains`           | `List<ServiceProviderDomain>` | Yes      |  Yes    |List of scientific domains related to the service.                        |
 | `categories`                  | `List<ServiceCategory>`       | Yes      |  Yes    |Categories and subcategories of the service.                              |
-| `targetUsers`                 | `List<String>`                | Yes      |  Yes    |List of target users for the service.                                     |
-| `accessTypes`                 | `List<String>`                | No       | Yes    | Types of access provided by the service (e.g., open, restricted).         |
-| `accessModes`                 | `List<String>`                | No       |  Yes    |Modes of access available for the service (e.g., online, in-person).      |
+| `targetUsers`                 | `List<String>`                | Yes      |  Yes    |List of target users for the service ([TARGET_USER](#TARGET_USER)).                                     |
+| `accessTypes`                 | `List<String>`                | No       | Yes    | Types of access provided by the service (e.g., open, restricted) ([ACCESS_TYPE](#ACCESS_TYPE)).         |
+| `accessModes`                 | `List<String>`                | No       |  Yes    |Modes of access available for the service (e.g., online, in-person) ([ACCESS_MODES](#ACCESS_MODES)).      |
 | `tags`                        | `List<String>`                | No       |  Yes    |Tags associated with the service.                                         |
 | `horizontalService`           | `Boolean`                     | No       |  Yes    |Indicates if the service is a horizontal service.                         |
-| `serviceCategories`           | `List<String>`                | No       | Yes    | List of service categories associated with the service.                   |
-| `marketplaceLocations`        | `List<String>`                | No       | Yes    | List of marketplace locations where the service is available.             |
-| `geographicalAvailabilities`  | `List<String>`                | Yes      |  Yes    |List of geographical availabilities of the service.                       |
-| `languageAvailabilities`      | `List<String>`                | Yes      |  Yes    |List of language availabilities of the service.                           |
-| `resourceGeographicLocations` | `List<String>`                | No       | Yes    | List of locations where the service resources are geographically located. |
+| `serviceCategories`           | `List<String>`                | No       | Yes    | List of service categories associated with the service ([SERVICE_CATEGORY](#SERVICE_CATEGORY)).                   |
+| `marketplaceLocations`        | `List<String>`                | No       | Yes    | List of marketplace locations where the service is available ([MARKETPLACE_LOCATION](#MARKETPLACE_LOCATION)).             |
+| `geographicalAvailabilities`  | `List<String>`                | Yes      |  Yes    |List of geographical availabilities of the service ([REGION](#REGION)).                       |
+| `languageAvailabilities`      | `List<String>`                | Yes      |  Yes    |List of language availabilities of the service ([LANGUAGE](#LANGUAGE)).                           |
+| `resourceGeographicLocations` | `List<String>`                | No       | Yes    | List of locations where the service resources are geographically located ([COUNTRY](#COUNTRY)). |
 | `mainContact`                 | `ServiceMainContact`          | Yes      | No    | Main contact information for the service.                                 |
 | `publicContacts`              | `List<ServicePublicContact>`  | Yes      |  Yes    |List of public contacts for the service.                                  |
 | `helpdeskEmail`               | `String`                      | Yes      |  Yes    |Email address for the service's helpdesk.                                 |
 | `securityContactEmail`        | `String`                      | Yes      | Yes    | Email address for security contact.                                       |
-| `trl`                         | `String`                      | Yes      |  Yes    |Technology Readiness Level of the service.                                |
-| `lifeCycleStatus`             | `String`                      | No       |  Yes    |Life cycle status of the service.                                         |
+| `trl`                         | `String`                      | Yes      |  Yes    |Technology Readiness Level of the service ([TRL](#TRL)).                                |
+| `lifeCycleStatus`             | `String`                      | No       |  Yes    |Life cycle status of the service ([LIFE_CYCLE_STATUS](#LIFE_CYCLE_STATUS)).                                         |
 | `certifications`              | `List<String>`                | No       |  Yes    |List of certifications related to the service.                            |
 | `standards`                   | `List<String>`                | No       | Yes    | Standards that the service complies with.                                 |
 | `openSourceTechnologies`      | `List<String>`                | No       |  Yes    |List of open-source technologies used in the service.                     |
@@ -1096,9 +1094,9 @@ _Resource Catalogue version: v5.0.0+u117_
 | `changeLog`                   | `List<String>`                | No       | No    | List of changes made to the service.                                      |
 | `requiredResources`           | `List<String>`                | No       | Yes    | List of required resources for the service.                               |
 | `relatedResources`            | `List<String>`                | No       | Yes    | List of related resources linked to the service.                          |
-| `relatedPlatforms`            | `List<String>`                | No       | Yes    | List of related platforms connected to the service.                        |
-| `fundingBody`                 | `List<String>`                | No       | Yes    | List of funding bodies supporting the service.                            |
-| `fundingPrograms`             | `List<String>`                | No       |  Yes    |List of funding programs related to the service.                          |
+| `relatedPlatforms`            | `List<String>`                | No       | Yes    | List of related platforms connected to the service ([RELATED_PLATFORM](#RELATED_PLATFORM)).                        |
+| `fundingBody`                 | `List<String>`                | No       | Yes    | List of funding bodies supporting the service ([FUNDING_BODY](#FUNDING_BODY)).                            |
+| `fundingPrograms`             | `List<String>`                | No       |  Yes    |List of funding programs related to the service ([FUNDING_PROGRAM](#FUNDING_PROGRAM)).                          |
 | `grantProjectNames`           | `List<String>`                | No       |  Yes    |Yes    | List of grant project names associated with the service.                  |
 | `helpdeskPage`                | `URL`                         | No       | Yes    | URL of the helpdesk page.                                                 |
 | `userManual`                  | `URL`                         | No       | Yes    | URL of the user manual.                                                   |
@@ -1109,19 +1107,12 @@ _Resource Catalogue version: v5.0.0+u117_
 | `trainingInformation`         | `URL`                         | No       | Yes    | URL of the training information.                                          |
 | `statusMonitoring`            | `URL`                         | No       | Yes    | URL for status monitoring information.                                    |
 | `maintenance`                 | `URL`                         | No       | Yes    | URL of the maintenance details.                                           |
-| `orderType`                   | `String`                      | Yes      |  Yes    |Type of order required for the service.                                   |
+| `orderType`                   | `String`                      | Yes      |  Yes    |Type of order required for the service ([ORDER_TYPE](#ORDER_TYPE)).                                   |
 | `order`                       | `URL`                         | No       |  Yes    |URL for ordering the service.                                             |
 | `paymentModel`                | `URL`                         | No       |  Yes    |URL of the payment model information.                                     |
 | `pricing`                     | `URL`                         | No       | Yes    | URL of the pricing details.                                               |
 
 #### Nested Objects
-
-##### AlternativeIdentifier
-
-| Field   | Type     | Required | Description                          |
-|---------|----------|----------|--------------------------------------|
-| `type`  | `String` | No       | Type of the alternative identifier.  |
-| `value` | `String` | No       | Value of the alternative identifier. |
 
 ##### MultimediaPair
 
@@ -1137,19 +1128,12 @@ _Resource Catalogue version: v5.0.0+u117_
 | `useCaseURL`  | `URL`    | Yes      | URL to the use case resource.  |
 | `useCaseName` | `String` | No       | Name of the use case resource. |
 
-##### ServiceProviderDomain
-
-| Field                 | Type     | Required | Description                    |
-|-----------------------|----------|----------|--------------------------------|
-| `scientificDomain`    | `String` | Yes      | Main scientific domain.        |
-| `scientificSubdomain` | `String` | Yes      | Specific scientific subdomain. |
-
 ##### ServiceCategory
 
 | Field         | Type     | Required | Description                 |
 |---------------|----------|----------|-----------------------------|
-| `category`    | `String` | Yes      | Category of the service.    |
-| `subcategory` | `String` | No       | Subcategory of the service. |
+| `category`    | `String` | Yes      | Category of the service ([CATEGORY](#CATEGORY)).    |
+| `subcategory` | `String` | No       | Subcategory of the service ([SUBCATEGORY](#SUBCATEGORY)). |
 
 ##### ServiceMainContact
 
@@ -1188,7 +1172,7 @@ _Resource Catalogue version: v5.0.0+u117_
 | `pid`    | `String` | No      | Pid of the guideline.    |
 | `label`    | `String` | No      | Label for the guideline.    |
 | `url`    | `URL` | No      | URL of the guideline.    |
-| `semanticRelationship`    | `String` | No      | Semantic Relationship.    |
+| `semanticRelationship`    | `String` | No      | Semantic Relationship ([SEMANTIC_RELATIONSHIP](#SEMANTIC_RELATIONSHIP)).    |
 
 ##### Site
 
@@ -1202,9 +1186,21 @@ _Resource Catalogue version: v5.0.0+u117_
 | Field   | Type     | Required |  Description                          |
 |---------|----------|----------|--------------------------------------|
 | `name`  | `String` | No       | Name of the endpoint.  |
-| `type` | `String` | No       | Type of the endpoint. |
-| `monitoringServiceType` | `String` | No       | Type of the endpoint regarding monitoring service. |
+| `type` | `String` | No       | Type of the endpoint ([ENDPOINT_TYPE](#ENDPOINT_TYPE)). |
+| `monitoringServiceType` | `String` | No       | Type of the endpoint regarding monitoring service ([MONITORING_SERVICE_TYPE](#MONITORING_SERVICE_TYPE)). |
 | `url` | `String` | No       | URL of the endpoint. |
+
+
+##### OnboardingIntegration 
+
+| Field                      | Type     | Required | Public | Description                                         |
+|----------------------------|----------|----------|-------------------------|----------------------------|
+| `serviceOfferFinalization`    | `String` | No      |No |Service offer finalization status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
+| `accountIntegration` | `String` | No | No |Account integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)). |
+| `aaiIntegration`    | `String` | No      |No |AAI integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
+| `omsIntegration`    | `String`    | No      |No |Oms integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
+| `securityCompliance`    | `String` | No      |No |Security compliance status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
+| `wpfsIntegration`    | `String`    | No      |No |Wpfs Integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
 
 ### Example
 
@@ -1228,8 +1224,9 @@ _Resource Catalogue version: v5.0.0+u117_
             "endpoints": [
                 {
                     "name": "endpoint_name",
-                    "type": "endpoint_type",
-                    "url": "endpoint_url"
+                    "type": "endpoint_type-api",
+                    "url": "endpoint_url",
+                    "monitoringServiceType": "eu.eosc.container_platform.api"
                 }
             ]
         }
@@ -1268,27 +1265,26 @@ _Resource Catalogue version: v5.0.0+u117_
         ],
         "scientificDomains": [
             {
-                "scientificDomain": "Biology",
-                "scientificSubdomain": "Molecular Biology"
+                "scientificDomain": "scientific_domain-engineering_and_technology",
+                "scientificSubdomain": "scientific_subdomain-engineering_and_technology-chemical_engineering"
             }
         ],
         "categories": [
             {
-                "category": "Category1",
-                "subcategory": "Subcategory1"
+                "category": "category-access_physical_and_eInfrastructures-compute",
+                "subcategory": "subcategory-access_physical_and_eInfrastructures-network-content_delivery_network"
             }
         ],
         "targetUsers": [
-            "Researchers",
-            "Students"
+            "target_user-businesses",
+            "target_user-other"
         ],
         "accessTypes": [
-            "Open",
-            "Restricted"
+            "access_type-remote",
+            "access_type-other"
         ],
         "accessModes": [
-            "Online",
-            "In-person"
+            "access_mode-free"
         ],
         "tags": [
             "innovation",
@@ -1296,23 +1292,23 @@ _Resource Catalogue version: v5.0.0+u117_
         ],
         "horizontalService": true,
         "serviceCategories": [
-            "CategoryA",
-            "CategoryB"
+            "service_category-compute",
+            "service_category-other"
         ],
         "marketplaceLocations": [
-            "Location1",
-            "Location2"
+            "marketplace_location-discover_research_outputs",
+            "marketplace_location-manage_research_data"
         ],
         "geographicalAvailabilities": [
-            "Global"
+            "EU"
         ],
         "languageAvailabilities": [
-            "English",
-            "French"
+            "en",
+            "el"
         ],
         "resourceGeographicLocations": [
-            "Location A",
-            "Location B"
+            "EL",
+            "UK"
         ],
         "mainContact": {
             "firstName": "John",
@@ -1334,8 +1330,8 @@ _Resource Catalogue version: v5.0.0+u117_
         ],
         "helpdeskEmail": "helpdesk@example.com",
         "securityContactEmail": "security@example.com",
-        "trl": "TRL 7",
-        "lifeCycleStatus": "Active",
+        "trl": "trl-7",
+        "lifeCycleStatus": "life_cycle_status-operation",
         "certifications": [
             "Certification1",
             "Certification2"
@@ -1363,17 +1359,15 @@ _Resource Catalogue version: v5.0.0+u117_
             "RelatedResource2"
         ],
         "relatedPlatforms": [
-            "Platform1",
-            "Platform2"
+            "related_platform-datacite",
+            "related_platform-egiace"
         ],
-        "catalogueId": "catalogue_001",
         "fundingBody": [
-            "Funding Body1",
-            "Funding Body2"
+            "funding_body-aka",
+            "funding_body-arc"
         ],
         "fundingPrograms": [
-            "Program1",
-            "Program2"
+            "funding_program-agr"
         ],
         "grantProjectNames": [
             "Project1",
@@ -1388,7 +1382,7 @@ _Resource Catalogue version: v5.0.0+u117_
         "trainingInformation": "https://example.com/training",
         "statusMonitoring": "https://example.com/status-monitoring",
         "maintenance": "https://example.com/maintenance",
-        "orderType": "Online",
+        "orderType": "order_type-order_required",
         "order": "https://example.com/order",
         "paymentModel": "https://example.com/payment-model",
         "pricing": "https://example.com/pricing"
@@ -1403,12 +1397,13 @@ _Resource Catalogue version: v5.0.0+u117_
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
+| `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `trainingResource`           | `TrainingResource`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
 ### Training Resource
@@ -1442,20 +1437,6 @@ _Resource Catalogue version: v5.0.0+u117_
 | `contact`                    | `ServiceMainContact`          | Yes   | No   | Contact details for the main contact person for the training resource.            |                                 |
 
 #### Nested Objects
-
-##### AlternativeIdentifier
-
-| Field   | Type     | Required | Description                          |
-|---------|----------|----------|--------------------------------------|
-| `type`  | `String` | No       | Type of the alternative identifier.  |
-| `value` | `String` | No       | Value of the alternative identifier. |
-
-##### ServiceProviderDomain
-
-| Field                 | Type     | Required | Description                    |
-|-----------------------|----------|----------|--------------------------------|
-| `scientificDomain`    | `String` | Yes      | Main scientific domain.        |
-| `scientificSubdomain` | `String` | Yes      | Specific scientific subdomain. |
 
 ##### ServiceMainContact
 
@@ -1570,7 +1551,7 @@ _Resource Catalogue version: v5.0.0+u117_
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status.            |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -1578,6 +1559,7 @@ _Resource Catalogue version: v5.0.0+u117_
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
 | `security`           | `ToolSecurity`   | Yes      | Yes    | Security related metadata.                    |      |
 | `contributorProvided`                | `Boolean`      | No       | No     | Indicates whether the resource is related to a Provider.
+| `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `tool`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
 ### Tool
@@ -1728,97 +1710,90 @@ _Resource Catalogue version: v5.0.0+u117_
 | `published` | `String` | No      |No |Indicates if resource is published.  |
 ---
 
+##### ServiceProviderDomain
+
+| Field                 | Type     | Required | Description                                    |
+|-----------------------|----------|----------|------------------------------------------------|
+| `scientificDomain`    | `String` | Yes      | Scientific domain related to the catalogue.    |
+| `scientificSubdomain` | `String` | No       | Scientific subdomain related to the catalogue. |
+
+##### AlternativeIdentifier
+
+| Field   | Type     | Required | Description                          |
+|---------|----------|----------|--------------------------------------|
+| `type`  | `String` | No       | Type of the alternative identifier.  |
+| `value` | `String` | No       | Value of the alternative identifier. |
+
 ## List of Vocabularies
-  - [ACCESS_MODE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_MODE.json)
-  - [ACCESS_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_TYPE.json)
-  - [CATALOGUE_STATE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CATALOGUE_STATE.json)
-  - [CATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CATEGORY.json)
-  - [COUNTRY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/COUNTRY.json)
-  - [COUNTRY_PHONE_CODES](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/COUNTRY_PHONE_CODES.json)
-  - [CT_COMPATIBILITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CT_COMPATIBILITY.json)
-  - [CT_PROTOCOL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CT_PROTOCOL.json)
-  - [DATASOURCE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DATASOURCE_TYPE.json)
-  - [DS_CLASSIFICATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_CLASSIFICATION.json)
-  - [DS_COAR_ACCESS_RIGHTS_1_0](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_COAR_ACCESS_RIGHTS_1_0.json)
-  - [DS_JURISDICTION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_JURISDICTION.json)
-  - [DS_OAI_COMPATIBILITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_COMPATIBILITY.json)
-  - [DS_OAI_FORMATS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_FORMATS.json)
-  - [DS_OAI_PROTOCOL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_PROTOCOL.json)
-  - [DS_PERSISTENT_IDENTITY_SCHEME](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_PERSISTENT_IDENTITY_SCHEME.json)
-  - [DS_RESEARCH_ENTITY_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_RESEARCH_ENTITY_TYPE.json)
-  - [ENDPOINT_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ENDPOINT_TYPE.json)
-  - [ENROLLMENT_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ENROLLMENT_STATUS.json)
-  - [FUNDING_BODY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/FUNDING_BODY.json)
-  - [FUNDING_PROGRAM](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/FUNDING_PROGRAM.json)
-  - [GEOGRAPHIC_LOCATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/GEOGRAPHIC_LOCATION.json)
-  - [INTEGRATION_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/INTEGRATION_STATUS.json)
-  - [IR_EOSC_GUIDELINE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_EOSC_GUIDELINE_TYPE.json)
-  - [IR_IDENTIFIER_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_IDENTIFIER_TYPE.json)
-  - [IR_NAME_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_NAME_TYPE.json)
-  - [IR_RESOURCE_TYPE_GENERAL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_RESOURCE_TYPE_GENERAL.json)
-  - [IR_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_STATUS.json)
-  - [LANGUAGE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/LANGUAGE.json)
-  - [LIFE_CYCLE_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/LIFE_CYCLE_STATUS.json)
-  - [MARKETPLACE_LOCATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MARKETPLACE_LOCATION.json)
-  - [MONITORING_MONITORED_BY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MONITORING_MONITORED_BY.json)
-  - [MONITORING_SERVICE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MONITORING_SERVICE_TYPE.json)
-  - [NODE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/NODE_TYPE.json)
-  - [ORDER_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ORDER_TYPE.json)
-  - [PROVIDER_AREA_OF_ACTIVITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_AREA_OF_ACTIVITY.json)
-  - [PROVIDER_ESFRI_DOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_ESFRI_DOMAIN.json)
-  - [PROVIDER_ESFRI_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_ESFRI_TYPE.json)
-  - [PROVIDER_HOSTING_LEGAL_ENTITY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_HOSTING_LEGAL_ENTITY.json)
-  - [PROVIDER_LEGAL_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_LEGAL_STATUS.json)
-  - [PROVIDER_LIFE_CYCLE_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_LIFE_CYCLE_STATUS.json)
-  - [PROVIDER_MERIL_SCIENTIFIC_DOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_MERIL_SCIENTIFIC_DOMAIN.json)
-  - [PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN.json)
-  - [PROVIDER_NETWORK](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_NETWORK.json)
-  - [PROVIDER_SOCIETAL_GRAND_CHALLENGE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_SOCIETAL_GRAND_CHALLENGE.json)
-  - [PROVIDER_STATE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_STATE.json)
-  - [PROVIDER_STRUCTURE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_STRUCTURE_TYPE.json)
-  - [REGION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/REGION.json)
-  - [RELATED_PLATFORM](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RELATED_PLATFORM.json)
-  - [RESEARCH_CATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESEARCH_CATEGORY.json)
-  - [RESOURCE_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESOURCE_STATUS.json)
-  - [SCIENTIFIC_DOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_DOMAIN.json)
-  - [SCIENTIFIC_SUBDOMAIN](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_SUBDOMAIN.json)
-  - [SEMANTIC_RELATIONSHIP](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SEMANTIC_RELATIONSHIP.json)
-  - [SERVICE_CATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SERVICE_CATEGORY.json)
-  - [SERVICE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SERVICE_TYPE.json)
-  - [SUBCATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SUBCATEGORY.json)
-  - [SUPERCATEGORY](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SUPERCATEGORY.json)
-  - [TARGET_USER](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TARGET_USER.json)
-  - [TEMPLATE_STATE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TEMPLATE_STATE.json)
-  - [TOOL_LICENSE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_LICENSE.json)
-  - [TOOL_SECURITY_STATUS](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_SECURITY_STATUS.json)
-  - [TOOL_TARGET_INFRASTRUCTURE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_TARGET_INFRASTRUCTURE.json)
-  - [TOOL_VULNERABILITIES](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_VULNERABILITIES.json)
-  - [TRL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TRL.json)
-  - [TR_ACCESS_RIGHT](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_ACCESS_RIGHT.json)
-  - [TR_CONTENT_RESOURCE_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_CONTENT_RESOURCE_TYPE.json)
-  - [TR_DCMI_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_DCMI_TYPE.json)
-  - [TR_EXPERTISE_LEVEL](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_EXPERTISE_LEVEL.json)
-  - [TR_QUALIFICATION](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_QUALIFICATION.json)
-  - [TR_URL_TYPE](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_URL_TYPE.json)
 
----
-
-## Data Validation
-This project provides [LinkML](https://linkml.io/) schemas for validating your data. Users can validate their data files 
-(e.g., YAML, JSON) against these schemas to ensure compliance with the defined structure, data types, and constraints. 
-Simply provide your data and use LinkML’s built-in tools or Python libraries to run the validation process. Errors or 
-mismatches will be reported to help you identify and fix issues.
-  - [View All Available Schemas](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/tree/eosc/linkml/schemas) to
-    explore the structures and constraints defined for validation.
-  - [Example Data Files](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/tree/eosc/linkml/data) are provided to
-    help you get started quickly and understand the expected format.
-
-### Quick Guide (Linux based systems):
-To validate your data against the provided LinkML schemas:
-1. Install LinkML 
-   `pip install linkml`
-2. Download [schemas](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/tree/master/linkml/schemas) folder
-3. Create a folder for your data 
-   `mkdir path/to/data`
-4. Run the validation command 
-   `linkml-validate -s path/to/schemas/schema.yaml path/to/data/data.yaml`f
+### ACCESS_MODE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_MODE.json)
+### ACCESS_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_TYPE.json)
+### CATALOGUE_STATE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CATALOGUE_STATE.json)
+### CATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CATEGORY.json)
+### COUNTRY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/COUNTRY.json)
+### COUNTRY_PHONE_CODES [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/COUNTRY_PHONE_CODES.json)
+### CT_COMPATIBILITY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CT_COMPATIBILITY.json)
+### CT_PROTOCOL [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CT_PROTOCOL.json)
+### DATASOURCE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DATASOURCE_TYPE.json)
+### DS_CLASSIFICATION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_CLASSIFICATION.json)
+### DS_COAR_ACCESS_RIGHTS_1_0 [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_COAR_ACCESS_RIGHTS_1_0.json)
+### DS_JURISDICTION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_JURISDICTION.json)
+### DS_OAI_COMPATIBILITY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_COMPATIBILITY.json)
+### DS_OAI_FORMATS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_OAI_FORMATS.json)
+### DS_PROTOCOL [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_PROTOCOL.json)
+### DS_PERSISTENT_IDENTITY_SCHEME [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_PERSISTENT_IDENTITY_SCHEME.json)
+### DS_RESEARCH_ENTITY_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/DS_RESEARCH_ENTITY_TYPE.json)
+### ENDPOINT_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ENDPOINT_TYPE.json)
+### ENROLLMENT_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ENROLLMENT_STATUS.json)
+### FUNDING_BODY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/FUNDING_BODY.json)
+### FUNDING_PROGRAM [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/FUNDING_PROGRAM.json)
+### GEOGRAPHIC_LOCATION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/GEOGRAPHIC_LOCATION.json)
+### INTEGRATION_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/INTEGRATION_STATUS.json)
+### IR_EOSC_GUIDELINE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_EOSC_GUIDELINE_TYPE.json)
+### IR_IDENTIFIER_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_IDENTIFIER_TYPE.json)
+### IR_NAME_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_NAME_TYPE.json)
+### IR_RESOURCE_TYPE_GENERAL [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_RESOURCE_TYPE_GENERAL.json)
+### IR_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/IR_STATUS.json)
+### LANGUAGE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/LANGUAGE.json)
+### LIFE_CYCLE_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/LIFE_CYCLE_STATUS.json)
+### MARKETPLACE_LOCATION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MARKETPLACE_LOCATION.json)
+### MONITORING_MONITORED_BY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MONITORING_MONITORED_BY.json)
+### MONITORING_SERVICE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/MONITORING_SERVICE_TYPE.json)
+### NODE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/NODE_TYPE.json)
+### ORDER_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ORDER_TYPE.json)
+### PROVIDER_AREA_OF_ACTIVITY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_AREA_OF_ACTIVITY.json)
+### PROVIDER_ESFRI_DOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_ESFRI_DOMAIN.json)
+### PROVIDER_ESFRI_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_ESFRI_TYPE.json)
+### PROVIDER_HOSTING_LEGAL_ENTITY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_HOSTING_LEGAL_ENTITY.json)
+### PROVIDER_LEGAL_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_LEGAL_STATUS.json)
+### PROVIDER_LIFE_CYCLE_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_LIFE_CYCLE_STATUS.json)
+### PROVIDER_MERIL_SCIENTIFIC_DOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_MERIL_SCIENTIFIC_DOMAIN.json)
+### PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN.json)
+### PROVIDER_NETWORK [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_NETWORK.json)
+### PROVIDER_SOCIETAL_GRAND_CHALLENGE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_SOCIETAL_GRAND_CHALLENGE.json)
+### PROVIDER_STATE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_STATE.json)
+### PROVIDER_STRUCTURE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/PROVIDER_STRUCTURE_TYPE.json)
+### REGION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/REGION.json)
+### RELATED_PLATFORM [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RELATED_PLATFORM.json)
+### RESEARCH_CATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESEARCH_CATEGORY.json)
+### RESOURCE_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESOURCE_STATUS.json)
+### SCIENTIFIC_DOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_DOMAIN.json)
+### SCIENTIFIC_SUBDOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_SUBDOMAIN.json)
+### SEMANTIC_RELATIONSHIP [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SEMANTIC_RELATIONSHIP.json)
+### SERVICE_CATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SERVICE_CATEGORY.json)
+### SERVICE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SERVICE_TYPE.json)
+### SUBCATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SUBCATEGORY.json)
+### SUPERCATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SUPERCATEGORY.json)
+### TARGET_USER [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TARGET_USER.json)
+### TEMPLATE_STATE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TEMPLATE_STATE.json)
+### TOOL_LICENSE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_LICENSE.json)
+### TOOL_SECURITY_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_SECURITY_STATUS.json)
+### TOOL_TARGET_INFRASTRUCTURE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_TARGET_INFRASTRUCTURE.json)
+### TOOL_VULNERABILITIES [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TOOL_VULNERABILITIES.json)
+### TRL [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TRL.json)
+### TR_ACCESS_RIGHT [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_ACCESS_RIGHT.json)
+### TR_CONTENT_RESOURCE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_CONTENT_RESOURCE_TYPE.json)
+### TR_DCMI_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_DCMI_TYPE.json)
+### TR_EXPERTISE_LEVEL [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_EXPERTISE_LEVEL.json)
+### TR_QUALIFICATION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_QUALIFICATION.json)
+### TR_URL_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_URL_TYPE.json)
