@@ -19,7 +19,7 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u119_
+_Resource Catalogue version: v5.0.0+u120_
 
 ---
 
@@ -431,6 +431,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `originalOpenAIREId`   | `String`      | No       | Yes     | Original OpenAIRE ID, if datasource already exists in the OpenAIRE Catalogue. |
 | `datasourceType`   | `String`      | No       | Yes     | Type of the datasource ([DATASOURCE_TYPE](#datasource_type-)). |
 | `oaiPmhInfo`           | `OaiPmhInfo`   | No      | Yes    | Metadata related to oai-pmh.                           |
+| `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
 | `datasource`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
@@ -591,6 +592,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
+| `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
@@ -860,9 +862,9 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | Field                      | Type     | Required | Public | Description                                         |
 |----------------------------|----------|----------|-------------------------|----------------------------|
 | `isNode`    | `String` | No      |Yes |Indicates if resource is a Node.    |
-| `openAIRECommunityTag` | `String` | No | Yes | OpenAIRE tag if node exists there. |
+| `openAIRECommunityTag` | `String` | No | No | OpenAIRE tag if node exists there. |
 | `nodeType`    | `String` | No      |No |Type of the Node ([NODE_TYPE](#node_type-)).    |
-| `enrollmentSteps`    | `EnrollmentSteps`  | No      |Yes |Steps for node enrollement.    |
+| `enrollmentSteps`    | `EnrollmentSteps`  | No      |No |Steps for node enrollement.    |
 
 ##### EnrollmentSteps 
 
@@ -872,6 +874,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `cataloguesEnrollment` | `String` | No | No |Catalogues enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)). |
 | `helpdeskEnrollment`    | `String` | No      |No |Helpdesk enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)).    |
 | `monitoringEnrollment`    | `String`    | No      |No |Monitoring enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)).    |
+| `enrollmentGreenLight`    | `EnrollmentSteps`  | No      |No |Greenlight status for official node enrollment ([ENROLLMENT_STATUS](#enrollment_status-)).      |
+| `legalFramework`    | `EnrollmentSteps`  | No      |No |LegalFramework status for node enrollment ([ENROLLMENT_STATUS](#enrollment_status-)).        |
 
 
 #### Example
@@ -1049,6 +1053,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `sites`             | `List<Site>`     | No       | Yes    | Information on the service's sites.  
 | `onboardingIntegration`           | `OnboardingIntegration`       | No| Yes    | Information about onboarding integration steps.
 | `nodeId`                   | `String`       | No| Yes    | ID of the node the resource belongs.
+| `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `service`           | `Service`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
@@ -1077,6 +1082,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `horizontalService`           | `Boolean`                     | No       |  Yes    |Indicates if the service is a horizontal service.                         |
 | `serviceCategories`           | `List<String>`                | No       | Yes    | List of service categories associated with the service ([SERVICE_CATEGORY](#service_category-)).                   |
 | `marketplaceLocations`        | `List<String>`                | No       | Yes    | List of marketplace locations where the service is available ([MARKETPLACE_LOCATION](#marketplace_location-)).             |
+| `classTier`        | `ServiceClassTier`                | No       | Yes    | Information related to the tier of a service in the EOSC EU Node           |
 | `geographicalAvailabilities`  | `List<String>`                | Yes      |  Yes    |List of geographical availabilities of the service ([REGION](#region-)).                       |
 | `languageAvailabilities`      | `List<String>`                | Yes      |  Yes    |List of language availabilities of the service ([LANGUAGE](#language-)).                           |
 | `resourceGeographicLocations` | `List<String>`                | No       | Yes    | List of locations where the service resources are geographically located ([COUNTRY](#country-)). |
@@ -1176,19 +1182,29 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 ##### Site
 
-| Field   | Type     | Required |  Description                          |
-|---------|----------|----------|--------------------------------------|
-| `name`  | `String` | No       | Name of the site.  |
-| `endpoints` | `List<Endpoints>` | No       | List of the endpoints. |
+| Field   | Type     | Required |  Public | Description                          |
+|---------|----------|----------|---------|-----------------------------|
+| `name`  | `String` | No       | Yes       |Name of the site.  |
+| `endpoints` | `List<Endpoint>` | No       | Yes       |List of the endpoints. |
 
 ##### Endpoint
 
-| Field   | Type     | Required |  Description                          |
-|---------|----------|----------|--------------------------------------|
-| `name`  | `String` | No       | Name of the endpoint.  |
-| `type` | `String` | No       | Type of the endpoint ([ENDPOINT_TYPE](#endpoint_type-)). |
-| `monitoringServiceType` | `String` | No       | Type of the endpoint regarding monitoring service ([MONITORING_SERVICE_TYPE](#monitoring_service_type-)). |
-| `url` | `String` | No       | URL of the endpoint. |
+| Field   | Type     | Required |  Public | Description                          |
+|---------|----------|----------|---------|-----------------------------|
+| `name`  | `String` | No       |  Yes       |Name of the endpoint.  |
+| `type` | `String` | No        |Yes       | Type of the endpoint ([ENDPOINT_TYPE](#endpoint_type-)). |
+| `monitoringServiceType` | `String` | No       | No       | Type of the endpoint regarding monitoring service ([MONITORING_SERVICE_TYPE](#monitoring_service_type-)). |
+| `url` | `String` | No       |  Yes       |URL of the endpoint. |
+
+##### ServiceClassTier
+
+| Field   | Type     | Required |  Public | Description                          |
+|---------|----------|----------|---------|-----------------------------|
+| `level`  | `Integer` | Yes       |  Yes       |Tier level.  |
+| `accessPolicy` | `String` | No       | Yes       | Access policy of the service|
+| `costModel` | `String` | No       |  Yes       |Cost model of the service. |
+| `offerings` | `List <String>` | No       |  Yes       |List of offferings. |
+
 
 
 ##### OnboardingIntegration 
@@ -1400,6 +1416,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
+| `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request. |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
@@ -1559,6 +1576,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
 | `security`           | `ToolSecurity`   | Yes      | Yes    | Security related metadata.                    |      |
 | `contributorProvided`                | `Boolean`      | No       | No     | Indicates whether the resource is related to a Provider.
+| `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `tool`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
