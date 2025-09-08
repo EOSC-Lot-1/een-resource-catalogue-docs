@@ -421,7 +421,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#RESOURCE_STATUS)). |
+| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `resourceOrganisationGroupID`               | `String`       | No       | No     |ID of the provider's organization
 | `nodeId`               | `String`       | No       | Yes     |ID of the node the resource belongs
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.                      |
@@ -429,7 +429,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                   |
 | `softwareRepository`   | `Boolean`      | No       | Yes     | Indicates whether the datasource is a software repository. |
 | `originalOpenAIREId`   | `String`      | No       | Yes     | Original OpenAIRE ID, if datasource already exists in the OpenAIRE Catalogue. |
-| `datasourceType`   | `String`      | No       | Yes     | Type of the datasource ([DATASOURCE_TYPE](#DATASOURCE_TYPE)). |
+| `datasourceType`   | `String`      | No       | Yes     | Type of the datasource ([DATASOURCE_TYPE](#datasource_type-)). |
 | `oaiPmhInfo`           | `OaiPmhInfo`   | No      | Yes    | Metadata related to oai-pmh.                           |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
 | `datasource`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
@@ -447,14 +447,14 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `preservationPolicyURL`| `URL`          | No       | Yes    | URL of the preservation policy.                             |
 | `versionControl`       | `Boolean`      | No       | Yes    | Indicates if version control is used.                       |
 | `persistentIdentitySystems` | `List<PersistentIdentitySystem>` | No | Yes | List of persistent identity systems associated with the datasource. |
-| `jurisdiction`         | `String`       | Yes      | Yes    | Jurisdiction where the datasource operates ([DS_JURISDICTION](#DS_JURISDICTION)).                 |
-| `datasourceClassification` | `String`   | Yes      | Yes    | Classification of the datasource ([DS_CLASSIFICATION](#DS_CLASSIFICATION)).                           |
-| `researchEntityTypes`  | `List<String>` | No       | Yes    | List of research entity types related to the datasource  ([DS_RESEARCH_ENTITY_TYPE](#DS_RESEARCH_ENTITY_TYPE)).    |
+| `jurisdiction`         | `String`       | Yes      | Yes    | Jurisdiction where the datasource operates ([DS_JURISDICTION](#ds_jurisdiction-)).                 |
+| `datasourceClassification` | `String`   | Yes      | Yes    | Classification of the datasource ([DS_CLASSIFICATION](#ds_classification-)).                           |
+| `researchEntityTypes`  | `List<String>` | No       | Yes    | List of research entity types related to the datasource  ([DS_RESEARCH_ENTITY_TYPE](#ds_research_entity_type-)).    |
 | `thematic`             | `Boolean`      | Yes      | Yes    | Indicates if the datasource is thematic.                    |
 | `researchProductLicensings` | `List<ResearchProductLicensing>` | No | Yes | List of research product licensing details.                 |
-| `researchProductAccessPolicies` | `List<String>` | No | Yes | List of research product access policies ([DS_COAR_ACCESS_RIGHTS_1_0](#DS_COAR_ACCESS_RIGHTS_1_0)).                   |
+| `researchProductAccessPolicies` | `List<String>` | No | Yes | List of research product access policies ([DS_COAR_ACCESS_RIGHTS_1_0](#ds_coar_access_rights_1_0-)).                   |
 | `researchProductMetadataLicensing` | `ResearchProductMetadataLicensing` | No | Yes | Metadata licensing details for research products.           |
-| `researchProductMetadataAccessPolicies` | `List<String>` | No | Yes | List of research product metadata access policies ([DS_COAR_ACCESS_RIGHTS_1_0](#DS_COAR_ACCESS_RIGHTS_1_0)).          |
+| `researchProductMetadataAccessPolicies` | `List<String>` | No | Yes | List of research product metadata access policies ([DS_COAR_ACCESS_RIGHTS_1_0](#ds_coar_access_rights_1_0-)).          |
 | `harvestable`          | `Boolean`      | No       | Yes    | Indicates if the datasource is harvestable.                 |
 
 
@@ -462,11 +462,11 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
-| `protocol`                   | `String`       | No | Yes    | Protocol used for OAI-PMH ([DS_PROTOCOL](#DS_PROTOCOL)).                       |
-| `baseUrl`                   | `String`       | No | Yes    | Url of OAI-PMH endpoint.                       |
+| `protocol`                   | `String`       | No | Yes    | Protocol used for OAI-PMH ([DS_PROTOCOL](#ds_protocol-)).               |
+| `baseUrl`                   | `String`       | Yes | Yes    | Url of OAI-PMH endpoint.                       |
 | `sets`                   | `List<String>`       | No | Yes    | OAI-PMH sets.                       |
-| `format`                   | `String`       | No | Yes    | OAI format ([DS_FORMAT](#DS_FORMAT)).                       |
-| `compatibility`                   | `String`       | No | Yes    | Datasource oai compatibility ([DS_COMPATIBILITY](#DS_COMPATIBILITY)).                       |
+| `format`                   | `String`       | No | Yes    | OAI format ([DS_FORMAT](#ds_format-)).                       |
+| `compatibility`                   | `String`       | No | Yes    | Datasource oai compatibility ([DS_COMPATIBILITY](#ds_compatibility-)).                       |
 | `openAIRECompliance`            | `String`       | No | Yes    | Indicates if resource is compliant with openAIRE specifications.                   |
 | `repositoryIdentifier`           | `AlternativeIdentifier`       | No | Yes    | Identifier for the repository.          
 | `alternativeIdentifiers`                   | `List<AlternativeIdentifier>`       | No | Yes    | Alternative identifiers.                  |
@@ -476,8 +476,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
-| `persistentIdentityEntityType`        | `String`         |Yes              | Yes      | Type of the persistent identity entity ([DS_RESEARCH_ENTITY_TYPE](#DS_RESEARCH_ENTITY_TYPE)).           |
-| `persistentIdentityEntityTypeSchemes` | `List<String>`     |Yes            | Yes       | Schemes for the persistent identity entity types ([DS_PERSISTENT_IDENTITY_SCHEME](#DS_PERSISTENT_IDENTITY_SCHEME)). |
+| `persistentIdentityEntityType`        | `String`         |Yes              | Yes      | Type of the persistent identity entity ([DS_RESEARCH_ENTITY_TYPE](#ds_research_entity_type-)).           |
+| `persistentIdentityEntityTypeSchemes` | `List<String>`     |Yes            | Yes       | Schemes for the persistent identity entity types ([DS_PERSISTENT_IDENTITY_SCHEME](#ds_persistent_identity_scheme-)). |
 
 ##### ResearchProductLicensing
 
@@ -588,7 +588,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status)). |
+| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -614,9 +614,9 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `relatedStandards`       | `List<RelatedStandard>`       | No   | Yes    | List of related standards connected to the interoperability record.              |
 | `rights`                 | `List<Right>`                 | Yes   | Yes   | List of rights associated with the record.                                       |
 | `description`            | `String`                      | Yes    | Yes  | Description of the interoperability record.                                      |
-| `status`                 | `String`                      | Yes   | Yes   | Current status of the interoperability record ([IR_STATUS](#IR_STATUS)).                                   |
-| `domain`                 | `String`                      | No    | Yes   | Domain to which the record pertains ([SCIENTIFIC_DOMAIN](#SCIENTIFIC_DOMAIN)).                                             |
-| `eoscGuidelineType`      | `String`                      | Yes   | Yes   | Type of EOSC (European Open Science Cloud) guideline associated with the record ([IR_EOSC_GUIDELINE_TYPE](#IR_EOSC_GUIDELINE_TYPE)). |
+| `status`                 | `String`                      | Yes   | Yes   | Current status of the interoperability record ([IR_STATUS](#ir_status-)).                                   |
+| `domain`                 | `String`                      | No    | Yes   | Domain to which the record pertains ([SCIENTIFIC_DOMAIN](#scientific_domain-)).                                             |
+| `eoscGuidelineType`      | `String`                      | Yes   | Yes   | Type of EOSC (European Open Science Cloud) guideline associated with the record ([IR_EOSC_GUIDELINE_TYPE](#ir_eosc_guideline_type-)). |
 | `eoscIntegrationOptions` | `List<String>`                | No     | Yes  | Options for integrating the record into EOSC.                                    |
 | `alternativeIdentifiers` | `List<AlternativeIdentifier>` | No     | Yes  | Alternative identifiers for the record.                                          |
 
@@ -627,7 +627,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | Field            | Type     | Required | Description                                      |
 |------------------|----------|----------|--------------------------------------------------|
 | `identifier`     | `String` | Yes      | Main identifier for the interoperability record. |
-| `identifierType` | `String` | Yes      | Type of the identifier, e.g., DOI, Handle ([IR_IDENTIFIER_TYPE](#IR_IDENTIFIER_TYPE)).       |
+| `identifierType` | `String` | Yes      | Type of the identifier, e.g., DOI, Handle ([IR_IDENTIFIER_TYPE](#ir_identifier_type-)).       |
 
 ##### Creator
 
@@ -644,7 +644,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | Field         | Type     | Required | Description                                   |
 |---------------|----------|----------|-----------------------------------------------|
 | `creatorName` | `String` | Yes      | Full name of the creator.                     |
-| `nameType`    | `String` | Yes      | Type of name, e.g., personal, organizational ([IR_NAME_TYPE](#IR_NAME_TYPE)). |
+| `nameType`    | `String` | Yes      | Type of name, e.g., personal, organizational ([IR_NAME_TYPE](#ir_name_type-)). |
 
 ##### CreatorAffiliationInfo
 
@@ -658,7 +658,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | Field                 | Type     | Required | Description                                         |
 |-----------------------|----------|----------|-----------------------------------------------------|
 | `resourceType`        | `String` | Yes      | Specific type of the resource, e.g., dataset, tool. |
-| `resourceTypeGeneral` | `String` | Yes      | General category of the resource type ([IR_RESOURCE_TYPE_GENERAL](#IR_RESOURCE_TYPE_GENERAL)).              |
+| `resourceTypeGeneral` | `String` | Yes      | General category of the resource type ([IR_RESOURCE_TYPE_GENERAL](#ir_resource_type_general-)).              |
 
 ##### RelatedStandard
 
@@ -762,7 +762,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status)). |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -782,28 +782,28 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `name`                    | `String`                      | Yes      | Yes      |Full name of the provider.                                                                        |
 | `website`                 | `URL`                         | Yes      |Yes      | URL of the provider's website.                                                                    |
 | `legalEntity`             | `boolean`                     | Yes      | Yes      |Indicates if the provider is a legal entity.                                                      |
-| `legalStatus`             | `String`                      | No       | Yes      |Legal status of the provider([PROVIDER_LEGAL_STATUS](#PROVIDER_LEGAL_STATUS)).                                                                     |
-| `hostingLegalEntity`      | `String`                      | No       |Yes      | Hosting legal entity responsible for the provider ([PROVIDER_HOSTING_LEGAL_ENTITY](#PROVIDER_HOSTING_LEGAL_ENTITY)).                                                |
+| `legalStatus`             | `String`                      | No       | Yes      |Legal status of the provider([PROVIDER_LEGAL_STATUS](#provider_legal_status-)).                                                                     |
+| `hostingLegalEntity`      | `String`                      | No       |Yes      | Hosting legal entity responsible for the provider ([PROVIDER_HOSTING_LEGAL_ENTITY](#provider_hosting_legal_entity-)).                                                |
 | `alternativeIdentifiers`  | `List<AlternativeIdentifier>` | No       |Yes      | List of alternative identifiers for the provider.                                                 |
 | `description`             | `String`                      | Yes      | Yes      |Description of the provider.                                                                      |
 | `logo`                    | `URL`                         | Yes      |Yes      | URL of the provider's logo.                                                                       |
 | `multimedia`              | `List<MultimediaPair>`        | No       | Yes      |List of multimedia items associated with the provider.                                            |
 | `scientificDomains`       | `List<ServiceProviderDomain>` | No       | Yes      |Scientific domains related to the provider's services.                                            |
 | `tags`                    | `List<String>`                | No       | Yes      |Tags associated with the provider.                                                                |
-| `structureTypes`          | `List<String>`                | No       | Yes      |Types of structures associated with the provider ([PROVIDER_STRUCTURE_TYPE](#PROVIDER_STRUCTURE_TYPE)).                                                 |
+| `structureTypes`          | `List<String>`                | No       | Yes      |Types of structures associated with the provider ([PROVIDER_STRUCTURE_TYPE](#provider_structure_type-)).                                                 |
 | `location`                | `ProviderLocation`            | Yes      | Yes      |Physical location details of the provider.                                                        |
 | `mainContact`             | `ProviderMainContact`         | Yes      | No      |Main contact information for the provider.                                                        |
 | `publicContacts`          | `List<ProviderPublicContact>` | Yes      |Yes      | List of public contacts for the provider.                                                         |
 | `lifeCycleStatus`         | `String`                      | No       | Yes      |Current lifecycle status of the provider.                                                         |
 | `certifications`          | `List<String>`                | No       | Yes      |List of certifications held by the provider.                                                      |
-| `participatingCountries`  | `List<String>`                | No       | Yes      |List of countries participating in the provider's services ([COUNTRY](#COUNTRY)).                                       |
+| `participatingCountries`  | `List<String>`                | No       | Yes      |List of countries participating in the provider's services ([COUNTRY](#country-)).                                       |
 | `affiliations`            | `List<String>`                | No       | Yes      |List of affiliations related to the provider.                                                     |
-| `networks`                | `List<String>`                | No       | Yes      |Networks associated with the provider ([PROVIDER_NETWORK](#PROVIDER_NETWORK)).                                                                 |
-| `esfriDomains`            | `List<String>`                | No       |Yes      | ESFRI (European Strategy Forum on Research Infrastructures) domains associated with the provider ([PROVIDER_ESFRI_DOMAIN](#PROVIDER_ESFRI_DOMAIN)). |
-| `esfriType`               | `String`                      | No       |Yes      | ESFRI type classification of the provider ([PROVIDER_ESFRI_TYPE_](#PROVIDER_ESFRI_TYPE)).                                                        |
+| `networks`                | `List<String>`                | No       | Yes      |Networks associated with the provider ([PROVIDER_NETWORK](#provider_network-)).                                                                 |
+| `esfriDomains`            | `List<String>`                | No       |Yes      | ESFRI (European Strategy Forum on Research Infrastructures) domains associated with the provider ([PROVIDER_ESFRI_DOMAIN](#provider_esfri_domain-)). |
+| `esfriType`               | `String`                      | No       |Yes      | ESFRI type classification of the provider ([PROVIDER_ESFRI_TYPE_](#provider_esfri_type-)).                                                        |
 | `merilScientificDomains`  | `List<ProviderMerilDomain>`   | No       | Yes      |MERIL scientific domains associated with the provider.                                            |
-| `areasOfActivity`         | `List<String>`                | No       | Yes      |Areas of activity related to the provider's services ([PROVIDER_AREA_OF_ACTIVITY](#PROVIDER_AREA_OF_ACTIVITY)).                                             |
-| `societalGrandChallenges` | `List<String>`                | No       |Yes      | Societal grand challenges addressed by the provider ([PROVIDER_SOCIETAL_GRAND_CHALLENGE](#PROVIDER_SOCIETAL_GRAND_CHALLENGE)).                                             |
+| `areasOfActivity`         | `List<String>`                | No       | Yes      |Areas of activity related to the provider's services ([PROVIDER_AREA_OF_ACTIVITY](#provider_area_of_activity-)).                                             |
+| `societalGrandChallenges` | `List<String>`                | No       |Yes      | Societal grand challenges addressed by the provider ([PROVIDER_SOCIETAL_GRAND_CHALLENGE](#provider_societal_grand_challenge-)).                                             |
 | `nationalRoadmaps`        | `List<String>`                | No       |Yes      | National roadmaps associated with the provider.                                                   |
 | `users`                   | `List<User>`                  | Yes      |No      | List of users associated with the provider.                                                       |
 
@@ -824,7 +824,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `postalCode`          | `String`  | Yes      | Postal code of the provider's location.        |
 | `city`                | `String`  | Yes      | City where the provider is located.            |
 | `region`              | `String`  | No       | Region or state where the provider is located. |
-| `country`             | `String`  | Yes      | Country where the provider is located ([COUNTRY](#COUNTRY)).         |
+| `country`             | `String`  | Yes      | Country where the provider is located ([COUNTRY](#country-)).         |
 
 ##### ProviderMainContact
 
@@ -852,8 +852,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 | Field                      | Type     | Required | Description                                         |
 |----------------------------|----------|----------|-----------------------------------------------------|
-| `merilScientificDomain`    | `String` | Yes      | MERIL scientific domain related to the provider ([PROVIDER_MERIL_SCIENTIFIC_DOMAIN](#PROVIDER_MERIL_SCIENTIFIC_DOMAIN)).    |
-| `merilScientificSubdomain` | `String` | No       | MERIL scientific subdomain related to the provider ([PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN](#PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN)). |
+| `merilScientificDomain`    | `String` | Yes      | MERIL scientific domain related to the provider ([PROVIDER_MERIL_SCIENTIFIC_DOMAIN](#provider_meril_scientific_domain-)).    |
+| `merilScientificSubdomain` | `String` | No       | MERIL scientific subdomain related to the provider ([PROVIDER_MERIL_SCIENTIFIC_SUBDOMAIN](#provider_meril_scientific_subdomain-)). |
 
 ##### NodeInfo 
 
@@ -861,17 +861,17 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 |----------------------------|----------|----------|-------------------------|----------------------------|
 | `isNode`    | `String` | No      |Yes |Indicates if resource is a Node.    |
 | `openAIRECommunityTag` | `String` | No | Yes | OpenAIRE tag if node exists there. |
-| `nodeType`    | `String` | No      |No |Type of the Node ([NODE_TYPE](#NODE_TYPE)).    |
+| `nodeType`    | `String` | No      |No |Type of the Node ([NODE_TYPE](#node_type-)).    |
 | `enrollmentSteps`    | `EnrollmentSteps`  | No      |Yes |Steps for node enrollement.    |
 
 ##### EnrollmentSteps 
 
 | Field                      | Type     | Required | Public | Description                                         |
 |----------------------------|----------|----------|-------------------------|----------------------------|
-| `aaiEnrollment`    | `String` | No      |No |Aai enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)).    |
-| `cataloguesEnrollment` | `String` | No | No |Catalogues enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)). |
-| `helpdeskEnrollment`    | `String` | No      |No |Helpdesk enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)).    |
-| `monitoringEnrollment`    | `String`    | No      |No |Monitoring enrollment status ([ENROLLMENT_STATUS](#ENROLLMENT_STATUS)).    |
+| `aaiEnrollment`    | `String` | No      |No |Aai enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)).    |
+| `cataloguesEnrollment` | `String` | No | No |Catalogues enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)). |
+| `helpdeskEnrollment`    | `String` | No      |No |Helpdesk enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)).    |
+| `monitoringEnrollment`    | `String`    | No      |No |Monitoring enrollment status ([ENROLLMENT_STATUS](#enrollment_status-)).    |
 
 
 #### Example
@@ -1039,7 +1039,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status)). |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -1070,22 +1070,22 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `useCases`                    | `List<UseCasesPair>`          | No       |  Yes    |List of use cases demonstrating the service in action.                    |
 | `scientificDomains`           | `List<ServiceProviderDomain>` | Yes      |  Yes    |List of scientific domains related to the service.                        |
 | `categories`                  | `List<ServiceCategory>`       | Yes      |  Yes    |Categories and subcategories of the service.                              |
-| `targetUsers`                 | `List<String>`                | Yes      |  Yes    |List of target users for the service ([TARGET_USER](#TARGET_USER)).                                     |
-| `accessTypes`                 | `List<String>`                | No       | Yes    | Types of access provided by the service (e.g., open, restricted) ([ACCESS_TYPE](#ACCESS_TYPE)).         |
-| `accessModes`                 | `List<String>`                | No       |  Yes    |Modes of access available for the service (e.g., online, in-person) ([ACCESS_MODES](#ACCESS_MODES)).      |
+| `targetUsers`                 | `List<String>`                | Yes      |  Yes    |List of target users for the service ([TARGET_USER](#target_user-)).                                     |
+| `accessTypes`                 | `List<String>`                | No       | Yes    | Types of access provided by the service (e.g., open, restricted) ([ACCESS_TYPE](#access_type-)).         |
+| `accessModes`                 | `List<String>`                | No       |  Yes    |Modes of access available for the service (e.g., online, in-person) ([ACCESS_MODE](#access_mode-)).      |
 | `tags`                        | `List<String>`                | No       |  Yes    |Tags associated with the service.                                         |
 | `horizontalService`           | `Boolean`                     | No       |  Yes    |Indicates if the service is a horizontal service.                         |
-| `serviceCategories`           | `List<String>`                | No       | Yes    | List of service categories associated with the service ([SERVICE_CATEGORY](#SERVICE_CATEGORY)).                   |
-| `marketplaceLocations`        | `List<String>`                | No       | Yes    | List of marketplace locations where the service is available ([MARKETPLACE_LOCATION](#MARKETPLACE_LOCATION)).             |
-| `geographicalAvailabilities`  | `List<String>`                | Yes      |  Yes    |List of geographical availabilities of the service ([REGION](#REGION)).                       |
-| `languageAvailabilities`      | `List<String>`                | Yes      |  Yes    |List of language availabilities of the service ([LANGUAGE](#LANGUAGE)).                           |
-| `resourceGeographicLocations` | `List<String>`                | No       | Yes    | List of locations where the service resources are geographically located ([COUNTRY](#COUNTRY)). |
+| `serviceCategories`           | `List<String>`                | No       | Yes    | List of service categories associated with the service ([SERVICE_CATEGORY](#service_category-)).                   |
+| `marketplaceLocations`        | `List<String>`                | No       | Yes    | List of marketplace locations where the service is available ([MARKETPLACE_LOCATION](#marketplace_location-)).             |
+| `geographicalAvailabilities`  | `List<String>`                | Yes      |  Yes    |List of geographical availabilities of the service ([REGION](#region-)).                       |
+| `languageAvailabilities`      | `List<String>`                | Yes      |  Yes    |List of language availabilities of the service ([LANGUAGE](#language-)).                           |
+| `resourceGeographicLocations` | `List<String>`                | No       | Yes    | List of locations where the service resources are geographically located ([COUNTRY](#country-)). |
 | `mainContact`                 | `ServiceMainContact`          | Yes      | No    | Main contact information for the service.                                 |
 | `publicContacts`              | `List<ServicePublicContact>`  | Yes      |  Yes    |List of public contacts for the service.                                  |
 | `helpdeskEmail`               | `String`                      | Yes      |  Yes    |Email address for the service's helpdesk.                                 |
 | `securityContactEmail`        | `String`                      | Yes      | Yes    | Email address for security contact.                                       |
-| `trl`                         | `String`                      | Yes      |  Yes    |Technology Readiness Level of the service ([TRL](#TRL)).                                |
-| `lifeCycleStatus`             | `String`                      | No       |  Yes    |Life cycle status of the service ([LIFE_CYCLE_STATUS](#LIFE_CYCLE_STATUS)).                                         |
+| `trl`                         | `String`                      | Yes      |  Yes    |Technology Readiness Level of the service ([TRL](#trl-)).                                |
+| `lifeCycleStatus`             | `String`                      | No       |  Yes    |Life cycle status of the service ([LIFE_CYCLE_STATUS](#life_cycle_status-)).                                         |
 | `certifications`              | `List<String>`                | No       |  Yes    |List of certifications related to the service.                            |
 | `standards`                   | `List<String>`                | No       | Yes    | Standards that the service complies with.                                 |
 | `openSourceTechnologies`      | `List<String>`                | No       |  Yes    |List of open-source technologies used in the service.                     |
@@ -1094,9 +1094,9 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `changeLog`                   | `List<String>`                | No       | No    | List of changes made to the service.                                      |
 | `requiredResources`           | `List<String>`                | No       | Yes    | List of required resources for the service.                               |
 | `relatedResources`            | `List<String>`                | No       | Yes    | List of related resources linked to the service.                          |
-| `relatedPlatforms`            | `List<String>`                | No       | Yes    | List of related platforms connected to the service ([RELATED_PLATFORM](#RELATED_PLATFORM)).                        |
-| `fundingBody`                 | `List<String>`                | No       | Yes    | List of funding bodies supporting the service ([FUNDING_BODY](#FUNDING_BODY)).                            |
-| `fundingPrograms`             | `List<String>`                | No       |  Yes    |List of funding programs related to the service ([FUNDING_PROGRAM](#FUNDING_PROGRAM)).                          |
+| `relatedPlatforms`            | `List<String>`                | No       | Yes    | List of related platforms connected to the service ([RELATED_PLATFORM](#related_platform-)).                        |
+| `fundingBody`                 | `List<String>`                | No       | Yes    | List of funding bodies supporting the service ([FUNDING_BODY](#funding_body-)).                            |
+| `fundingPrograms`             | `List<String>`                | No       |  Yes    |List of funding programs related to the service ([FUNDING_PROGRAM](#funding_program-)).                          |
 | `grantProjectNames`           | `List<String>`                | No       |  Yes    |Yes    | List of grant project names associated with the service.                  |
 | `helpdeskPage`                | `URL`                         | No       | Yes    | URL of the helpdesk page.                                                 |
 | `userManual`                  | `URL`                         | No       | Yes    | URL of the user manual.                                                   |
@@ -1107,7 +1107,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `trainingInformation`         | `URL`                         | No       | Yes    | URL of the training information.                                          |
 | `statusMonitoring`            | `URL`                         | No       | Yes    | URL for status monitoring information.                                    |
 | `maintenance`                 | `URL`                         | No       | Yes    | URL of the maintenance details.                                           |
-| `orderType`                   | `String`                      | Yes      |  Yes    |Type of order required for the service ([ORDER_TYPE](#ORDER_TYPE)).                                   |
+| `orderType`                   | `String`                      | Yes      |  Yes    |Type of order required for the service ([ORDER_TYPE](#order_type-)).                                   |
 | `order`                       | `URL`                         | No       |  Yes    |URL for ordering the service.                                             |
 | `paymentModel`                | `URL`                         | No       |  Yes    |URL of the payment model information.                                     |
 | `pricing`                     | `URL`                         | No       | Yes    | URL of the pricing details.                                               |
@@ -1132,8 +1132,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 | Field         | Type     | Required | Description                 |
 |---------------|----------|----------|-----------------------------|
-| `category`    | `String` | Yes      | Category of the service ([CATEGORY](#CATEGORY)).    |
-| `subcategory` | `String` | No       | Subcategory of the service ([SUBCATEGORY](#SUBCATEGORY)). |
+| `category`    | `String` | Yes      | Category of the service ([CATEGORY](#category-)).    |
+| `subcategory` | `String` | No       | Subcategory of the service ([SUBCATEGORY](#subcategory-)). |
 
 ##### ServiceMainContact
 
@@ -1172,7 +1172,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `pid`    | `String` | No      | Pid of the guideline.    |
 | `label`    | `String` | No      | Label for the guideline.    |
 | `url`    | `URL` | No      | URL of the guideline.    |
-| `semanticRelationship`    | `String` | No      | Semantic Relationship ([SEMANTIC_RELATIONSHIP](#SEMANTIC_RELATIONSHIP)).    |
+| `semanticRelationship`    | `String` | No      | Semantic Relationship ([SEMANTIC_RELATIONSHIP](#semantic_relationship-)).    |
 
 ##### Site
 
@@ -1186,8 +1186,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | Field   | Type     | Required |  Description                          |
 |---------|----------|----------|--------------------------------------|
 | `name`  | `String` | No       | Name of the endpoint.  |
-| `type` | `String` | No       | Type of the endpoint ([ENDPOINT_TYPE](#ENDPOINT_TYPE)). |
-| `monitoringServiceType` | `String` | No       | Type of the endpoint regarding monitoring service ([MONITORING_SERVICE_TYPE](#MONITORING_SERVICE_TYPE)). |
+| `type` | `String` | No       | Type of the endpoint ([ENDPOINT_TYPE](#endpoint_type-)). |
+| `monitoringServiceType` | `String` | No       | Type of the endpoint regarding monitoring service ([MONITORING_SERVICE_TYPE](#monitoring_service_type-)). |
 | `url` | `String` | No       | URL of the endpoint. |
 
 
@@ -1195,12 +1195,12 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 | Field                      | Type     | Required | Public | Description                                         |
 |----------------------------|----------|----------|-------------------------|----------------------------|
-| `serviceOfferFinalization`    | `String` | No      |No |Service offer finalization status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
-| `accountIntegration` | `String` | No | No |Account integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)). |
-| `aaiIntegration`    | `String` | No      |No |AAI integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
-| `omsIntegration`    | `String`    | No      |No |Oms integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
-| `securityCompliance`    | `String` | No      |No |Security compliance status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
-| `wpfsIntegration`    | `String`    | No      |No |Wpfs Integration status ([INTEGRATION_STATUS](#INTEGRATION_STATUS)).    |
+| `serviceOfferFinalization`    | `String` | No      |No |Service offer finalization status ([INTEGRATION_STATUS](#integration_status-)).    |
+| `accountIntegration` | `String` | No | No |Account integration status ([INTEGRATION_STATUS](#integration_status-)). |
+| `aaiIntegration`    | `String` | No      |No |AAI integration status ([INTEGRATION_STATUS](#integration_status-)).    |
+| `omsIntegration`    | `String`    | No      |No |Oms integration status ([INTEGRATION_STATUS](#integration_status-)).    |
+| `securityCompliance`    | `String` | No      |No |Security compliance status ([INTEGRATION_STATUS](#integration_status-)).    |
+| `wpfsIntegration`    | `String`    | No      |No |Wpfs Integration status ([INTEGRATION_STATUS](#integration_status-)).    |
 
 ### Example
 
@@ -1397,7 +1397,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status)). |
+| `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -1551,7 +1551,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `suspended`            | `Boolean`      | No       | No     | Indicates whether the resource is suspended.               |
 | `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
-| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status)). |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -1734,7 +1734,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 ## List of Vocabularies
 
-### ACCESS_MODE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_MODE.json)
+### ACCESS_MODE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_MODE.json)
 ### ACCESS_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/ACCESS_TYPE.json)
 ### CATALOGUE_STATE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CATALOGUE_STATE.json)
 ### CATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/CATEGORY.json)
