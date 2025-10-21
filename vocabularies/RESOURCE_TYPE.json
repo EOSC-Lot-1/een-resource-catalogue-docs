@@ -1,0 +1,44 @@
+[
+    {
+        "id": "provider",
+        "name": "Provider",
+        "description": "Provider",
+        "type": "Resource type"
+    },
+    {
+        "id": "node",
+        "name": "Node",
+        "description": "Node",
+        "type": "Resource type"
+    },
+    {
+        "id": "service",
+        "name": "Service",
+        "description": "Service",
+        "type": "Resource type"
+    },
+    {
+        "id": "datasource",
+        "name": "Datasource",
+        "description": "Datasource",
+        "type": "Resource type"
+    },
+    {
+        "id": "training-resource",
+        "name": "Training resource",
+        "description": "Training resource",
+        "type": "Resource type"
+    },
+    {
+        "id": "interoperability-record",
+        "name": "Interoperability record",
+        "description": "Interoperability record",
+        "type": "Resource type"
+    },
+    {
+        "id": "tool",
+        "name": "Tool",
+        "description": "Tool",
+        "type": "Resource type"
+    }
+]

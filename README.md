@@ -19,7 +19,7 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u120_
+_Resource Catalogue version: v5.0.0+u122_
 
 ---
 
@@ -31,7 +31,8 @@ _Resource Catalogue version: v5.0.0+u120_
     iv. [Service Controller](#service-controller)  
     v. [Training Resource Controller](#training-resource-controller)  
     vi. [Tool Controller](#tool-controller)  
-    vii. [Vocabulary Controller](#vocabulary-controller)  
+    vii. [Resource Revision Controller](#resource-revision-controller)  
+    viii. [Vocabulary Controller](#vocabulary-controller)  
 2. [Model](#model)  
     i. [Datasource](#datasource-bundle)  
     ii. [Interoperability Record](#interoperability-record-bundle)  
@@ -39,6 +40,7 @@ _Resource Catalogue version: v5.0.0+u120_
     iv. [Service](#service-bundle)  
     v. [Training Resource](#training-resource-bundle)  
     vi. [Tool](#tool-bundle)  
+    vi. [Resource Revision](#resource-revision-bundle)  
     vii. [Vocabulary](#vocabulary)  
     viii. [Miscellaneous](#miscellaneous)  
 3. [List of Vocabularies](#list-of-vocabularies)
@@ -377,6 +379,63 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
       Body:
         Tool JSON [required]
       ```
+      
+- ### Resource Revision Controller
+  
+  #### Operations for Resource Revisions
+  
+  - DELETE
+    - Deletes a Resource Revision given its id.
+      ```diff
+      /resource-revisions/{prefix}/{suffix}
+      Params:
+        prefix: String [required]
+        suffix: String [required]
+      ```
+      
+  - GET
+    - Returns a Resource Revision given its id.
+      ```diff
+        /resource-revisions/{prefix}/{suffix}
+        Params:
+          prefix: String [required]
+          suffix: String [required]
+      ```
+    - Returns a list of all Resource Revisions in the Catalogue based on a set of filters.
+      ```diff
+        /resource-revisions
+        Params:
+          active: boolean [optional]
+          keyword : String (Keyword to refine the search) [optional]
+          from : String (Starting index in the result set, default 0) [optional]
+          quantity: String (Quantity to be fetched, default 10) [optional]
+          order: String (Order of results - asc/desc, default asc) [optional]
+          sort: String (Field to use for ordering) [optional]
+      ```
+      
+      Example: ```resource-catalogue-url/resource-revisions?active=true&keyword=test1&quantity=50```
+
+  - POST
+    - Creates a new Resource Revision.
+      ```diff
+        /resource-revisions
+        Body:
+          Resource Revision JSON [required]
+    - Validates a Resource Revision without actually changing the repository.
+      ```diff
+      /resource-revisions/validate
+      Body:
+        Resource Revision JSON [required]
+  - PUT
+    - Updates a specific Resource Revision.
+      ```diff
+      /resource-revisions
+      Params:
+        comment: String
+      Body:
+        Resource Revision JSON [required]
+      ```
+     
 - ### Vocabulary Controller
   
   #### Get information about Vocabularies
@@ -822,6 +881,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 
 | Field                 | Type      | Required | Description                                     |
 |-----------------------|-----------|----------|-------------------------------------------------|
+| `organizationName` | `String`  | No      | Name of the organization.     |
 | `streetNameAndNumber` | `String`  | Yes      | Street address of the provider's location.     |
 | `postalCode`          | `String`  | Yes      | Postal code of the provider's location.        |
 | `city`                | `String`  | Yes      | City where the provider is located.            |
@@ -963,6 +1023,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
             "provider_structure_type-other"
         ],
         "location": {
+            "organizationName": "Organization name",
             "streetNameAndNumber": "123 Main St",
             "postalCode": "12345",
             "city": "Sample City",
@@ -1689,7 +1750,70 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
     "id": "tool_id"
 }
 ```
+### Resource Revision Bundle
+| Field                  | Type           | Required | Public | Description                                                 |
+|------------------------|----------------|----------|--------|-------------------------------------------------------------|
+| `id`                   | `String`       | auto-gen | Yes    | Unique identifier for the resource.                        |
+| `originalId`               | `String`      | No       | No     | Identifier of the original resource.                  |       |
+| `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
+| `active`               | `Boolean`      | No       | No     | Indicates whether the resource is active.                  |
+| `draft`                | `Boolean`      | No       | No     | Indicates whether the resource is in draft state.          |
+| `resourceType`               | `String`       | No       | No     | Provides information about the resource type([RESOURCE_TYPE](#resource_type-)). |
+| `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.                |
+| `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |                |
+| `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
+| `resourceRevision`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
+                    |
+### Resource Revision
 
+| Field                        | Type                          | Required | Public| Description                                                                       |
+|------------------------------|-------------------------------|----------|----|-------------------------------------------------------------------------------|
+| `id`                         | `String`                      | auto-gen| Yes | Unique identifier for the resource revision.                                      |
+| `resourceData`                      | `String`                      | No    | No  | JSON data of the resource for approval.                                                   |
+
+### Example
+
+```json
+{
+    "metadata": {
+        "registeredBy": "null",
+        "registeredAt": "1733734606",
+        "modifiedBy": "null",
+        "modifiedAt": "1733739459",
+        "published": true
+    },
+    "loggingInfo": [
+        {
+            "date": "1733739490542",
+            "userEmail": "null",
+            "userFullName": "System",
+            "userRole": "admin",
+            "type": "update",
+            "comment": "null",
+            "actionType": "updated"
+        },
+        {
+            "date": "1733739490542",
+            "userEmail": "null",
+            "userFullName": "System",
+            "userRole": "admin",
+            "type": "onboard",
+            "comment": "null",
+            "actionType": "pending"
+        }
+    ],
+    "status": "pending",
+    "originalId": "service_id",
+    "resourceType": "service",
+    "active": "true",
+    "draft": "false",
+    "resourceRevision": {
+        "id": "resource_revision_id",
+        "resourceData": "{\"metadata\":{\"registeredBy\":\"system\",\"registeredAt\":\"1613666632297\",\"modifiedBy\":\"system\",\"modifiedAt\":\"1613666963711\",\"published\":true},\"active\":true,\"suspended\":false,\"draft\":false,\"legacy\":false,\"status\":\"approved\",\"scientificDomains\": [{\"scientificDomain\": \"scientific_domain-engineering_and_technology\",\"scientificSubdomain\": \"scientific_subdomain-engineering_and_technology-chemical_engineering\"}]..."
+    },
+    "id": "resource_revision_id"
+}
+```
 
 ### Vocabulary
 
@@ -1803,6 +1927,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 ### RELATED_PLATFORM [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RELATED_PLATFORM.json)
 ### RESEARCH_CATEGORY [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESEARCH_CATEGORY.json)
 ### RESOURCE_STATUS [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESOURCE_STATUS.json)
+### RESOURCE_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/RESOURCE_TYPE.json)
 ### SCIENTIFIC_DOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_DOMAIN.json)
 ### SCIENTIFIC_SUBDOMAIN [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SCIENTIFIC_SUBDOMAIN.json)
 ### SEMANTIC_RELATIONSHIP [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/SEMANTIC_RELATIONSHIP.json)

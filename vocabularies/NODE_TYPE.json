@@ -6,9 +6,27 @@
     "type": "Node type"
   },
   {
+    "id": "node_type-institutional",
+    "name": "Institutional",
+    "description": "Institutional",
+    "type": "Node type"
+  },
+  {
+    "id": "node_type-multinational",
+    "name": "Multinational",
+    "description": "Multinational",
+    "type": "Node type"
+  },
+  {
     "id": "node_type-national",
     "name": "National",
     "description": "National",
+    "type": "Node type"
+  },
+  {
+    "id": "node_type-other",
+    "name": "Other",
+    "description": "Other",
     "type": "Node type"
   },
   {
@@ -21,6 +39,12 @@
     "id": "node_type-thematic",
     "name": "Thematic",
     "description": "Thematic",
+    "type": "Node type"
+  },
+  {
+    "id": "node_type-eInfrastructure",
+    "name": "eInfrastructure",
+    "description": "eInfrastructure",
     "type": "Node type"
   }
 ]
