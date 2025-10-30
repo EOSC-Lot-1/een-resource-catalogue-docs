@@ -1,7 +1,7 @@
 [
   {
-    "id": "ds_classification-research_product_data_source",
-    "name": "Research Product Data Source",
+    "id": "ds_classification-research_product_catalogue",
+    "name": "Research Product Catalogue",
     "description": "",
     "type": "Classification",
     "extras": {}
