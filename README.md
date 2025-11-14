@@ -1125,7 +1125,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `id`                          | `String`                      | auto-gen |  Yes    |Unique identifier for the service.                                        |
 | `abbreviation`                | `String`                      | Yes      | Yes    | Abbreviation of the service's name.                                       |
 | `name`                        | `String`                      | Yes      |  Yes    |Full name of the service.                                                 |
-| `resourceOrganisation`        | `String`                      | Yes      | Yes    | Name of the resource organization providing the service.                  |
+| `resourceOrganisation`        | `String`                      | Yes      | Yes    | The PID of the organization providing the service.                  |
 | `resourceProviders`           | `List<String>`                | No       |  Yes    |List of resource providers associated with the service.                   |
 | `webpage`                     | `URL`                         | Yes      |  Yes    |URL of the service's webpage.                                             |
 | `alternativeIdentifiers`      | `List<AlternativeIdentifier>` | No       | Yes    | List of alternative identifiers for the service.                          |
@@ -1313,7 +1313,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
         "id": "service_001",
         "abbreviation": "SERV",
         "name": "Sample Service",
-        "resourceOrganisation": "Sample Organisation",
+        "resourceOrganisation": "organisation_pid",
         "resourceProviders": [
             "Provider1",
             "Provider2"
@@ -1490,7 +1490,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 |------------------------------|-------------------------------|----------|----|-------------------------------------------------------------------------------|
 | `id`                         | `String`                      | auto-gen| Yes | Unique identifier for the training resource.                                      |
 | `title`                      | `String`                      | Yes    | Yes  | Title of the training resource.                                                   |
-| `resourceOrganisation`       | `String`                      | Yes   | Yes   | Organisation providing the resource.                                              |
+| `resourceOrganisation`       | `String`                      | Yes   | Yes   | The PID of the organization providing the training resource.                                              |
 | `resourceProviders`          | `List<String>`                | No    | Yes   | List of resource providers associated with the training resource.                 |
 | `authors`                    | `List<String>`                | Yes  | Yes    | List of authors who contributed to the training resource.                         |
 | `url`                        | `URL`                         | Yes   | Yes   | URL linking to the training resource.                                             |
@@ -1647,7 +1647,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 |------------------------------|-------------------------------|----------|----|-------------------------------------------------------------------------------|
 | `id`                         | `String`                      | auto-gen| Yes | Unique identifier for the training resource.                                      |
 | `name`                      | `String`                      | Yes    | Yes  | Name of the tool.                                                   |
-| `resourceOrganisation`       | `String`                      | No   | Yes   | Name of the organisation providing the resource.                                              |
+| `resourceOrganisation`       | `String`                      | No   | Yes   | The PID of the organisation providing the resource.                                              |
 | `resourceProvider`          | `String`                | No    | Yes   | ID of the resource provider.              |
 | `author`                    | `String`                | Yes  | Yes    | Authors who contributed to the tool.                         |                        |
 | `relatedResources`        | `List<String>`                | No   | Yes    | List of related resources in the European Open Science Cloud (EOSC).               |                       |
@@ -1723,7 +1723,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
     "tool": {
         "id": "21.11162/6WP3Id",
         "name": "go to top 2",
-        "resourceOrganisation": "EU Node",
+        "resourceOrganisation": "EU_node_pid",
         "description": "desc",
         "keywords": [
             "eu"
