@@ -19,7 +19,7 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u122_
+_Resource Catalogue version: v5.0.0+u123_
 
 ---
 
@@ -1762,6 +1762,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.                |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |                |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
+| `linkedServiceRevisionId` | `String`  | No       | No     | Id of the linked service revision (for datasources)
 | `resourceRevision`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
 ### Resource Revision

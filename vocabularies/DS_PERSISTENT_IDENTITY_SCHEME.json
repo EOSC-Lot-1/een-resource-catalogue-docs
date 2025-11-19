@@ -1,41 +1,8 @@
 [
   {
-    "id": "ds_persistent_identity_scheme-doi",
-    "name": "DOI",
+    "id": "ds_persistent_identity_scheme-ark",
+    "name": "ARK",
     "description": "",
-    "parentId": null,
-    "type": "Persistent identity scheme",
-    "extras": {}
-  },
-  {
-    "id": "ds_persistent_identity_scheme-handle",
-    "name": "Handle",
-    "description": "",
-    "parentId": null,
-    "type": "Persistent identity scheme",
-    "extras": {}
-  },
-  {
-    "id": "ds_persistent_identity_scheme-ror",
-    "name": "RoR",
-    "description": "",
-    "parentId": null,
-    "type": "Persistent identity scheme",
-    "extras": {}
-  },
-  {
-    "id": "ds_persistent_identity_scheme-orcid",
-    "name": "ORCID",
-    "description": "",
-    "parentId": null,
-    "type": "Persistent identity scheme",
-    "extras": {}
-  },
-  {
-    "id": "ds_persistent_identity_scheme-isni",
-    "name": "ISNI",
-    "description": "",
-    "parentId": null,
     "type": "Persistent identity scheme",
     "extras": {}
   },
@@ -43,7 +10,41 @@
     "id": "ds_persistent_identity_scheme-arxiv",
     "name": "ArXiv",
     "description": "",
-    "parentId": null,
+    "type": "Persistent identity scheme",
+    "extras": {}
+  },
+  {
+    "id": "ds_persistent_identity_scheme-doi",
+    "name": "DOI",
+    "description": "",
+    "type": "Persistent identity scheme",
+    "extras": {}
+  },
+  {
+    "id": "ds_persistent_identity_scheme-handle",
+    "name": "Handle",
+    "description": "",
+    "type": "Persistent identity scheme",
+    "extras": {}
+  },
+  {
+    "id": "ds_persistent_identity_scheme-isni",
+    "name": "ISNI",
+    "description": "",
+    "type": "Persistent identity scheme",
+    "extras": {}
+  },
+  {
+    "id": "ds_persistent_identity_scheme-orcid",
+    "name": "ORCID",
+    "description": "",
+    "type": "Persistent identity scheme",
+    "extras": {}
+  },
+  {
+    "id": "ds_persistent_identity_scheme-other",
+    "name": "Other",
+    "description": "",
     "type": "Persistent identity scheme",
     "extras": {}
   },
@@ -51,14 +52,13 @@
     "id": "ds_persistent_identity_scheme-pmcid",
     "name": "PMCID",
     "description": "",
-    "parentId": null,
     "type": "Persistent identity scheme",
     "extras": {}
-  },{
-    "id": "ds_persistent_identity_scheme-ark",
-    "name": "ARK",
+  },
+  {
+    "id": "ds_persistent_identity_scheme-ror",
+    "name": "RoR",
     "description": "",
-    "parentId": null,
     "type": "Persistent identity scheme",
     "extras": {}
   }
