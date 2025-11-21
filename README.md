@@ -482,6 +482,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `legacy`               | `Boolean`      | No       | No     | Indicates whether the resource is from EOSC Future.        |
 | `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `resourceOrganisationGroupID`               | `String`       | No       | No     |ID of the provider's organization
+| `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `nodeId`               | `String`       | No       | Yes     |ID of the node the resource belongs
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.                      |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
@@ -594,6 +595,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
         }
     },
     "resourceOrganisationGroupID": "groupId",
+    "pendingRevisionId": "resourceRevisionId",
     "nodeId": "nodeId",
     "id": "datasource_001",
     "datasource": {
@@ -651,6 +653,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
+| `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
@@ -752,6 +755,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
     "draft": false,
     "legacy": true,
     "status": "pending",
+    "resourceOrganisationGroupID": "groupId",
+    "pendingRevisionId": "resourceRevisionId",
     "id": "interop_001",
     "interoperabilityRecord": {
         "id": "interop_001",
@@ -826,6 +831,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
+| `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
@@ -975,6 +981,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
     ],
     "status": "approved",
     "resourceOrganisationGroupID": "groupId",
+    "pendingRevisionId": "resourceRevisionId",
     "nodeInfo": {
         "isNode": true,
         "openAIRECommunityTag": "openAIREtag",
@@ -1107,6 +1114,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
+| `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
@@ -1309,6 +1317,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
         }
     ],
     "resourceOrganisationGroupID": "groupId",
+    "pendingRevisionId": "resourceRevisionId",
     "service": {
         "id": "service_001",
         "abbreviation": "SERV",
@@ -1477,6 +1486,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status ([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
+| `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request. |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
@@ -1543,6 +1553,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
     "draft": true,
     "legacy": false,
     "status": "pending",
+    "resourceOrganisationGroupID": "groupId",
+    "pendingRevisionId": "resourceRevisionId",
     "trainingResource": {
         "id": "training_001",
         "title": "Introduction to Data Science",
@@ -1632,6 +1644,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `status`               | `String`       | No       | No     | Provides information about the resource status([RESOURCE_STATUS](#resource_status-)). |
 | `metadata`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.       
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization.               |
+| `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action. 
@@ -1718,6 +1731,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
         "actionType": "approved"
     },
     "status": "approved",
+    "resourceOrganisationGroupID": "groupId",
+    "pendingRevisionId": "resourceRevisionId",
     "security": {},
     "contributorProvided": false,
     "tool": {
