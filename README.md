@@ -19,7 +19,7 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u123_
+_Resource Catalogue version: v5.0.0+u124_
 
 ---
 
@@ -492,6 +492,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `datasourceType`   | `String`      | No       | Yes     | Type of the datasource ([DATASOURCE_TYPE](#datasource_type-)). |
 | `oaiPmhInfo`           | `OaiPmhInfo`   | No      | Yes    | Metadata related to oai-pmh.                           |
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
+| `resubmit`                | `Boolean`      | No       | No     | Indicates whether the resource is flagged for resubmit.          |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
 | `datasource`           | `Datasource`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
@@ -655,6 +656,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
+| `resubmit`                | `Boolean`      | No       | No     | Indicates whether the resource is flagged for resubmit.          |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
@@ -837,6 +839,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |
 | `nodeInfo`           | `NodeInfo`   | No      | Yes    | Metadata of the actual resource.                           |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |
+| `resubmit`                | `Boolean`      | No       | No     | Indicates whether the resource is flagged for resubmit.          |
 | `provider`           | `Provider`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
 
@@ -1123,6 +1126,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `onboardingIntegration`           | `OnboardingIntegration`       | No| Yes    | Information about onboarding integration steps.
 | `nodeId`                   | `String`       | No| Yes    | ID of the node the resource belongs.
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
+| `resubmit`                | `Boolean`      | No       | No     | Indicates whether the resource is flagged for resubmit.          |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `service`           | `Service`   | Yes      | Yes    | Metadata of the actual resource.                           |
 
@@ -1488,6 +1492,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `resourceOrganisationGroupID`    | `String`       | No       | No     |ID of the provider's organization               |
 | `pendingRevisionId`               | `String`       | No       | No     |ID of the pending resource revision
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request. |
+| `resubmit`                | `Boolean`      | No       | No     | Indicates whether the resource is flagged for resubmit.          |
 | `loggingInfo`          | `LoggingInfo`  | No       | No     | Contains details about resource updates.                   |
 | `latestOnboardingInfo` | `LoggingInfo`  | No       | No     | Details of the latest onboarding action.                      |
 | `latestUpdateInfo` | `LoggingInfo`  | No       | No     | Details of the latest update action.                  |      |
@@ -1651,6 +1656,7 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `security`           | `ToolSecurity`   | Yes      | Yes    | Security related metadata.                    |      |
 | `contributorProvided`                | `Boolean`      | No       | No     | Indicates whether the resource is related to a Provider.
 | `offboardRequestPending`                | `Boolean`      | No       | No     | Indicates whether the resource has a pending offboard request.          |
+| `resubmit`                | `Boolean`      | No       | No     | Indicates whether the resource is flagged for resubmit.          |
 | `acknowledgement`           | `Acknowledgement`   | No      | No    | Acknowledgement for different statements.                           |  
 | `tool`           | `Tool`   | Yes      | Yes    | Metadata of the actual resource.       
                     |
