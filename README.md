@@ -1771,6 +1771,44 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
     "id": "tool_id"
 }
 ```
+
+### Logging Info
+| Field                  | Type           | Required | Public | Description                                                 |
+|------------------------|----------------|----------|--------|-------------------------------------------------------------|
+| `date`                   | `String`       | No | No    | Date of the logging info.                        |
+| `userEmail`               | `String`      | No       | No     | Email of the user.                  |       |
+| `userFullName`               | `String`       | No       | No     | Full name of the user. |
+| `userRole`               | `Boolean`      | No       | No     |Role of the user.                  |
+| `type`                | `Boolean`      | No       | No     | Type of the logging info.          |
+| `actionType`               | `String`       | No       | No     | Type of the action. |
+| `comment`             | `Metadata`     | No       | Yes    | Additional metadata for the resource.                |
+
+### Example
+```json
+{
+  "loggingInfo": [
+    {
+      "actionType": "drafted",
+      "comment": "null",
+      "date": "1749559477253",
+      "type": "draft",
+      "userEmail": "test@example.com",
+      "userFullName": "John Brown",
+      "userRole": "provider"
+    },
+    {
+      "actionType": "updated",
+      "comment": "null",
+      "date": "1749559496107",
+      "type": "update",
+      "userEmail": "test@example.com",
+      "userFullName": "John Brown",
+      "userRole": "provider"
+    }
+  ]
+}
+```
+
 ### Resource Revision Bundle
 | Field                  | Type           | Required | Public | Description                                                 |
 |------------------------|----------------|----------|--------|-------------------------------------------------------------|
