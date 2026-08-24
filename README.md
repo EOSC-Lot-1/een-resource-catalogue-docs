@@ -19,7 +19,7 @@ descriptions of each controller, along with their associated functionalities and
 its data models and a detailed list of vocabularies used within the platform. Additionally, the documentation provides 
 schemas for validating data of the various classes, ensuring consistency and reliability across the system.  
 
-_Resource Catalogue version: v5.0.0+u124_
+_Resource Catalogue version: v5.0.0+u126_
 
 ---
 
@@ -1919,6 +1919,8 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 | `resourceHubAck`  | `Boolean` | No       | No |Acknowledgement for Resource Hub.  |
 | `monitoringServiceAck`  | `Boolean` | No    |No | Acknowledgement for monitoring service.  |
 | `securityContactAck`  | `Boolean` | No       | No   |Acknowledgement for security contact.  |
+| `rsopAck`  | `Boolean` | No       | No   |Acknowledgement for resources and services onboarding policy.  |
+| `nodeRegistrationPolicyAck`  | `Boolean` | No       | No   |Acknowledgement for node registration policy.  |
 
 ##### ServiceProviderDomain
 
