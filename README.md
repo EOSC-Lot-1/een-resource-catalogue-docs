@@ -2010,3 +2010,6 @@ For example, GET and POST operations use a ServiceBundle containing the Service 
 ### TR_EXPERTISE_LEVEL [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_EXPERTISE_LEVEL.json)
 ### TR_QUALIFICATION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_QUALIFICATION.json)
 ### TR_URL_TYPE [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/TR_URL_TYPE.json)
+
+## Service Category Guidelines
+### SERVICE_CLASSIFICATION [🔗](https://github.com/EOSC-Lot-1/een-resource-catalogue-docs/blob/eosc/vocabularies/WG_SVC_CAT_GUIDELINES/SERVICE_CLASSIFICATION.json)
