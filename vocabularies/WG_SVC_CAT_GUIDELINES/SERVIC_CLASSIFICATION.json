@@ -1,0 +1,114 @@
+[
+  {
+    "id": "service_classification-publishing_discovery",
+    "name": "Publishing & Discovery",
+    "description": "Examples include catch-all repositories (e.g., Zenodo), data repositories (e.g., PANGAEA), software repositories, scientific data collections (e.g., Copernicus and biobanks), metadata aggregators and catalogues, scholarly knowledge graphs (SKGs), service catalogues, instrument registries, APIs, web portals, and semantic artefact catalogues (e.g., OntoPortal-based catalogues, EBI-based catalogues, and TIB Terminology Services).",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-research_assessment_monitoring",
+    "name": "Research Assessment & Monitoring",
+    "description": "Examples include FAIR validators, Open Science monitoring tools, and research impact and evaluation systems.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-data_management_curation",
+    "name": "Data Management & Curation",
+    "description": "Examples include data management plan tools (DMP tools), metadata editors, curation and annotation platforms, and data policy management tools.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-data_processing_analysis",
+    "name": "Data Processing & Analysis",
+    "description": "Examples include Jupyter notebooks, workflow engines, analysis platforms, AI and machine-learning services, and statistical tools.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-compute_services",
+    "name": "Compute Services",
+    "description": "Examples include HPC clusters, cloud computing infrastructure (IaaS), virtual machines, and container orchestration platforms such as Kubernetes.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-storage_services",
+    "name": "Storage Services",
+    "description": "Examples include object storage such as S3, archival storage, file systems, backup services, long-term preservation platforms, and secure storage services.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-networking_services",
+    "name": "Networking Services",
+    "description": "Examples include research networks (NRENs), VPNs, high-speed data-transfer services, and federated connectivity services.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-science_gateways",
+    "name": "Science Gateways",
+    "description": "Examples include web-based research platforms, virtual laboratories, and Virtual Research Environments (VREs).",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-instrumentation_physical_resources",
+    "name": "Instrumentation & Physical Resources",
+    "description": "Examples include laboratory instruments, sensors, IoT devices, and experimental facilities.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-research_support_collaboration",
+    "name": "Research Support & Collaboration",
+    "description": "Examples include user-support and consultancy services, collaboration platforms, and project-management tools.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-training_skills_development",
+    "name": "Training & Skills Development",
+    "description": "Examples include e-learning platforms, MOOCs, training portals, webinars, and certification services.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-infrastructure_operations_services",
+    "name": "Infrastructure Operations Services",
+    "description": "Examples include authentication and authorization infrastructures (AAI), federated identity systems such as eduGAIN, monitoring systems, and helpdesk platforms.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-persistent_identifiers",
+    "name": "Persistent Identifiers",
+    "description": "Examples include persistent identifier and registry services for researchers, organizations, and research resources, such as DOI, ORCID, and ROR.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  },
+  {
+    "id": "service_classification-other",
+    "name": "Other",
+    "description": "Use this category if and only if the service does not match any of the other classifications.",
+    "type": "Service classification",
+    "parentId": null,
+    "extras": {}
+  }
+]
